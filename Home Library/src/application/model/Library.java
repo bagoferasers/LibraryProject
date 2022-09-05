@@ -8,7 +8,7 @@ package application.model;
  *
  */
 public class Library {
-	private Genre[ ] genres;
 	private Book[ ] books;
-	private Author[ ] authors;
+	
+	// import books to library
 }

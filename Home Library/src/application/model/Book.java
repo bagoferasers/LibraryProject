@@ -3,6 +3,8 @@
  */
 package application.model;
 
+import java.io.PrintStream;
+
 import javafx.scene.image.Image;
 /**
  * @author colbybailey
@@ -12,17 +14,22 @@ public class Book {
 	private Image picture;
 	private String name;
 	private String description;
-	private String[ ] hashtags;
-	private String[ ] authors;
-	private String genre;
+	private Hashtag hashtags;
+	private Author author;
+	private Genre genre;
 	
 	public Book( Image picture, String name, String description,
-		         String[ ] hashtags, String[ ] authors, String genre ) {
-		
+		         Hashtag hashtags, Author author, Genre genre ) {
+		this.setPicture(picture);
+		this.setName(name);
+		this.setDescription(description);
+		this.setHashtags(hashtags);
+		this.setAuthor(author);
+		this.setGenre(genre);
 	}
 	
 	public Image getPicture( ) {
-		return this.picture;
+		return picture;
 	}
 	
 	public void setPicture( Image picture ) {
@@ -30,7 +37,7 @@ public class Book {
 	}
 	
 	public String getName( ) {
-		return this.name;
+		return name;
 	}
 	
 	public void setName( String name ) {
@@ -38,34 +45,39 @@ public class Book {
 	}
 	
 	public String getDescription( ) {
-		return this.description;
+		return description;
 	}
 	
 	public void setDescription( String description ) {
 		this.description = description;
 	}
 	
-	public String[ ] getHashtags( ) {
-		return this.hashtags;
+	public Hashtag getHashtags( ) {
+		return hashtags;
 	}
 	
-	public void setHashtags( String[ ] hashtags ) {
+	public void setHashtags( Hashtag hashtags ) {
 		this.hashtags = hashtags;
 	}
 	
-	public String[ ] getAuthors( ) {
-		return this.authors;
+	public Genre getGenre( ) {
+		return genre;
 	}
 	
-	public void setAuthors( String[ ] authors ) {
-		this.authors = authors;
-	}
-	
-	public String getGenre( ) {
-		return this.genre;
-	}
-	
-	public void setGenre( String genre ) {
+	public void setGenre( Genre genre ) {
 		this.genre = genre;
+	}
+
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
+	
+	@Override
+	public String toString() {
+		return this.name + " by " + this.author + " ( " + this.genre + " ) \n\t" + this.hashtags + "\n\t" + this.description;
 	}
 }

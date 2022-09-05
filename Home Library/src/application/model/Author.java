@@ -10,7 +10,30 @@ package application.model;
 public class Author {
 	private String firstName;
 	private String lastName;
-	private Book[ ] books;
-	private String[ ] hashtags;
 	
+	public Author( String firstName, String lastName ) {
+		this.setFirstName(firstName);
+		this.setLastName(lastName);
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getLastName( ) {
+		return lastName;
+	}
+	
+	public void setLastName( String lastName ) {
+		this.lastName = lastName;
+	}
+	
+	@Override
+	public String toString() {
+		return this.getFirstName() + " " + this.getLastName();
+	}
 }

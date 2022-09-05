@@ -2,19 +2,45 @@
  * 
  */
 package application;
+import java.io.File;
+import java.net.URL;
+
+import application.model.Author;
+import application.model.Book;
+import application.model.Genre;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  * @author colbybailey
  *
  */
-public class Main {
-
-	/**
-	 * @param args
-	 */
+public class Main extends Application {
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			URL url = new File("MainMenu.fxml").toURI().toURL();
+			BorderPane root = (BorderPane)FXMLLoader.load(url);
+			Scene scene = new Scene(root,1000,800);
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("Bailey Library");
+			//Image logo = new Image("application/view/developers-hand-logo.png");
+			//primaryStage.getIcons().add(logo);
+			primaryStage.setScene(scene);
+			//primaryStage.setMaxHeight(800);
+			//primaryStage.setMaxWidth(1000);
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		launch(args);
 	}
 
 }

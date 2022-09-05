@@ -8,7 +8,22 @@ package application.model;
  *
  */
 public class Genre {
-	private Book[ ] books;
-	private Author[ ] authors;
-	private String[ ] hashtags;
+	private String genreName;
+	
+	public Genre( String genreName ) {
+		this.setGenreName(genreName);
+	}
+
+	public String getGenreName() {
+		return genreName;
+	}
+
+	public void setGenreName(String genreName) {
+		this.genreName = genreName;
+	}
+	
+	@Override
+	public String toString() {
+		return this.genreName;
+	}
 }
