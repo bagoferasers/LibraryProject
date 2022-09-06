@@ -13,7 +13,6 @@ public class Hashtag {
 		 for(int i = 0; i < this.hashtagNames.length; i++) {
 			 s += "#" + this.hashtagNames[i] + " ";
 		 }
-		 System.out.print(s);
 		 return s.toString();
 	 }
 }

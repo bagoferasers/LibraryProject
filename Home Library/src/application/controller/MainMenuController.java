@@ -36,6 +36,7 @@ public class MainMenuController {
     @FXML
     private RadioButton genresButton;
     
+    @FXML
 	public void onSearch(ActionEvent event) {
 		
 		// load up books in inventory
@@ -66,6 +67,14 @@ public class MainMenuController {
 		
     	searchList.setItems(b);
     }
+	
+    @FXML
+	public void onSelectBook() {
+		Book b = searchList.getSelectionModel().getSelectedItem();
+		//send selected item to pop out view of book
+		System.out.println(b.getName());
+    	System.out.println("selected Book");
+	}
     
 }
 
