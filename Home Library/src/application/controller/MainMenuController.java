@@ -1,5 +1,9 @@
 package application.controller;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import application.model.Author;
 import application.model.Book;
 import application.model.Genre;
@@ -8,12 +12,24 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.stage.Modality;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
 
 public class MainMenuController {
+	
+    @FXML
+    private BorderPane borderPane;
 
     @FXML
     private ListView<Book> searchList;
@@ -76,5 +92,30 @@ public class MainMenuController {
     	System.out.println("selected Book");
 	}
     
+    @FXML
+    public void newBook(ActionEvent event) {
+    	//open new Scene
+    	URL newBookURL;
+		try {
+			newBookURL = new File("NewBook.fxml").toURI().toURL();
+			Parent root = FXMLLoader.load(newBookURL);
+			Stage stage = new Stage();
+			Scene scene = new Scene(root);
+			stage.setHeight(800);
+			stage.setWidth(1000);
+			stage.setTitle("Add Book");
+			stage.setScene(scene);
+			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.show();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	//add book attributes to book object via pop out view
+    	
+    	//print book to csv
+    	
+    }
 }
 

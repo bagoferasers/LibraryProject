@@ -19,7 +19,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			URL url = new File("/Users/colbybailey/Desktop/LibraryProject/Home Library/MainMenu.fxml").toURI().toURL();
+			URL url = new File("MainMenu.fxml").toURI().toURL();
 			BorderPane root = (BorderPane)FXMLLoader.load(url);
 			Scene scene = new Scene(root,1000,800);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
