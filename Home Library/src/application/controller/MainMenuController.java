@@ -60,27 +60,19 @@ public class MainMenuController {
 		Author kathy = new Author("kathy", "bailey");
 		Author bart = new Author("bart", "bailey");
 		Genre genre = new Genre("Sci-Fi" );
-		
 		String[] h = {"h1", "h2", "h3"};
 		Hashtag hashtags = new Hashtag(h);
-		
-		Book b1 = new Book( null, "Dictionary", "A book about words.",
-		         hashtags, jane, genre );
-		Book b2 = new Book( null, "AssHat", "A book about ass.",
-		         hashtags, kathy, genre );
-		Book b3 = new Book( null, "Poo", "A book about poo.",
-		         hashtags, bart, genre );
-		Book b4 = new Book( null, "Rodents", "A book about rodents.",
-		         hashtags, kathy, genre );
-		Book b5 = new Book( null, "Cosmos", "A book about space.",
-		         hashtags, kathy, genre );
+		Book b1 = new Book( null, "Dictionary", "A book about words.", hashtags, jane, genre );
+		Book b2 = new Book( null, "AssHat", "A book about ass.", hashtags, kathy, genre );
+		Book b3 = new Book( null, "Poo", "A book about poo.", hashtags, bart, genre );
+		Book b4 = new Book( null, "Rodents", "A book about rodents.", hashtags, kathy, genre );
+		Book b5 = new Book( null, "Cosmos", "A book about space.", hashtags, kathy, genre );
 		ObservableList <Book> b= FXCollections.observableArrayList();
 		b.add(b1);
 		b.add(b2);
 		b.add(b3);
 		b.add(b4);
 		b.add(b5);
-		
     	searchList.setItems(b);
     }
 	
@@ -90,6 +82,21 @@ public class MainMenuController {
 		//send selected item to pop out view of book
 		System.out.println(b.getName());
     	System.out.println("selected Book");
+    	URL selectBookURL;
+    	try {
+    		selectBookURL = new File("SelectedBook.fxml").toURI().toURL();
+    		Parent root = FXMLLoader.load(selectBookURL);
+    		Stage stage = new Stage();
+    		Scene scene = new Scene(root);
+    		stage.setHeight(800);
+    		stage.setWidth(1000);
+    		stage.setTitle("Selected Book");
+    		stage.setScene(scene);
+    		stage.initModality(Modality.APPLICATION_MODAL);
+    		stage.show();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
 	}
     
     @FXML
