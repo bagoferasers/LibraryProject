@@ -11,16 +11,16 @@ import javafx.scene.image.Image;
  *
  */
 public class Book {
-	private Image picture;
+    private Image BookImage;
 	private String name;
 	private String description;
 	private Hashtag hashtags;
 	private Author author;
 	private Genre genre;
 	
-	public Book( Image picture, String name, String description,
+	public Book( Image BookImage, String name, String description,
 		         Hashtag hashtags, Author author, Genre genre ) {
-		this.setPicture(picture);
+		this.setPicture(BookImage);
 		this.setName(name);
 		this.setDescription(description);
 		this.setHashtags(hashtags);
@@ -29,11 +29,11 @@ public class Book {
 	}
 	
 	public Image getPicture( ) {
-		return picture;
+		return BookImage;
 	}
 	
-	public void setPicture( Image picture ) {
-		this.picture = picture;
+	public void setPicture( Image BookImage ) {
+		this.BookImage = BookImage;
 	}
 	
 	public String getName( ) {
@@ -78,6 +78,6 @@ public class Book {
 	
 	@Override
 	public String toString() {
-		return this.name + " by " + this.author + " ( " + this.genre + " ) \n\t" + this.hashtags + "\n\t" + this.description;
+		return this.name + " by " + this.author + " ( " + this.genre + " ) " + this.hashtags;
 	}
 }
