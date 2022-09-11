@@ -7,7 +7,6 @@ import java.net.URL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-//import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -27,8 +26,8 @@ public class Main extends Application {
 			//Image logo = new Image("application/view/developers-hand-logo.png");
 			//primaryStage.getIcons().add(logo);
 			primaryStage.setScene(scene);
-			//primaryStage.setMaxHeight(800);
-			//primaryStage.setMaxWidth(1000);
+			primaryStage.setMaxHeight(800);
+			primaryStage.setMaxWidth(1000);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

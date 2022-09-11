@@ -1,41 +1,24 @@
 package application.controller;
-
+import application.model.Library;
 import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ResourceBundle;
-
 import application.model.Author;
 import application.model.Book;
 import application.model.Genre;
 import application.model.Hashtag;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 public class MainMenuController {
-	
-    @FXML
-    private BorderPane borderPane;
 
     @FXML
     private ListView<Book> searchList;
@@ -59,27 +42,12 @@ public class MainMenuController {
     private RadioButton genresButton;
     
     @FXML
-    private Label BookHashtags;
-
-    @FXML
-    private Label BookDescription;
-
-    @FXML
-    private ImageView BookImage;
-
-    @FXML
-    private Label BookTitle;
-
-    @FXML
-    private Label BookAuthor;
-    
-    @FXML
-    private Text testText;
+    private BorderPane borderPane;
     
     @FXML
 	public void onSearch(ActionEvent event) {
 		
-		// load up books in inventory
+		// load up books in inventory	
 		Author jane = new Author("jane", "bailey");
 		Author kathy = new Author("kathy", "bailey");
 		Author bart = new Author("bart", "bailey");
@@ -93,63 +61,30 @@ public class MainMenuController {
 		Book b5 = new Book( null, "Cosmos", "A book about space.", hashtags, kathy, genre );
 		
 		//make global?
-		ObservableList <Book> b= FXCollections.observableArrayList();
+		//ObservableList <Book> b= FXCollections.observableArrayList();
 		
-		
-		b.add(b1);
-		b.add(b2);
-		b.add(b3);
-		b.add(b4);
-		b.add(b5);
-    	searchList.setItems(b);
+		Library.books.add(b1);
+		Library.books.add(b2);
+		Library.books.add(b3);
+		Library.books.add(b4);
+		Library.books.add(b5);
+    	searchList.setItems(Library.books);
     }
-	
+    
     @FXML
-	void onSelectBook() {
-		
-		//send selected item to pop out view of book
+    void goSelectBook(MouseEvent event) {
     	try {
-    		URL selectBookURL = new File("SelectedBook.fxml").toURI().toURL();
-    		Parent root = FXMLLoader.load(selectBookURL);
-    		Stage stage = new Stage();
-    		Scene scene = new Scene(root);
-    		stage.setHeight(800);
-    		stage.setWidth(1000);
-    		stage.setTitle("Selected Book");
-    		stage.setScene(scene);
     		Book b = searchList.getSelectionModel().getSelectedItem();
-    		
-    		stage.initModality(Modality.APPLICATION_MODAL);
+    		Library.selected = b;
+    		URL selectBookURL = new File("SelectedBook.fxml").toURI().toURL();
+    		borderPane = FXMLLoader.load(selectBookURL);
+    		Scene scene = new Scene(borderPane);
+    		Stage stage = new Stage();
+    		stage.setScene(scene);
     		stage.show();
     	} catch (Exception e) {
     		e.printStackTrace();
     	}
-	}
-    
-    @FXML
-    public void newBook(ActionEvent event) {
-    	//open new Scene
-    	URL newBookURL;
-		try {
-			newBookURL = new File("NewBook.fxml").toURI().toURL();
-			Parent root = FXMLLoader.load(newBookURL);
-			Stage stage = new Stage();
-			Scene scene = new Scene(root);
-			stage.setHeight(800);
-			stage.setWidth(1000);
-			stage.setTitle("Add Book");
-			stage.setScene(scene);
-			stage.initModality(Modality.APPLICATION_MODAL);
-			stage.show();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
-    	//add book attributes to book object via pop out view
-    	
-    	//print book to csv
-    	
     }
 }
 
