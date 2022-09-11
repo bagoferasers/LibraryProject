@@ -1,8 +1,10 @@
 package application.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
 import application.model.Author;
 import application.model.Book;
@@ -13,15 +15,19 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -53,6 +59,24 @@ public class MainMenuController {
     private RadioButton genresButton;
     
     @FXML
+    private Label BookHashtags;
+
+    @FXML
+    private Label BookDescription;
+
+    @FXML
+    private ImageView BookImage;
+
+    @FXML
+    private Label BookTitle;
+
+    @FXML
+    private Label BookAuthor;
+    
+    @FXML
+    private Text testText;
+    
+    @FXML
 	public void onSearch(ActionEvent event) {
 		
 		// load up books in inventory
@@ -67,7 +91,11 @@ public class MainMenuController {
 		Book b3 = new Book( null, "Poo", "A book about poo.", hashtags, bart, genre );
 		Book b4 = new Book( null, "Rodents", "A book about rodents.", hashtags, kathy, genre );
 		Book b5 = new Book( null, "Cosmos", "A book about space.", hashtags, kathy, genre );
+		
+		//make global?
 		ObservableList <Book> b= FXCollections.observableArrayList();
+		
+		
 		b.add(b1);
 		b.add(b2);
 		b.add(b3);
@@ -77,14 +105,11 @@ public class MainMenuController {
     }
 	
     @FXML
-	public void onSelectBook() {
-		Book b = searchList.getSelectionModel().getSelectedItem();
+	void onSelectBook() {
+		
 		//send selected item to pop out view of book
-		System.out.println(b.getName());
-    	System.out.println("selected Book");
-    	URL selectBookURL;
     	try {
-    		selectBookURL = new File("SelectedBook.fxml").toURI().toURL();
+    		URL selectBookURL = new File("SelectedBook.fxml").toURI().toURL();
     		Parent root = FXMLLoader.load(selectBookURL);
     		Stage stage = new Stage();
     		Scene scene = new Scene(root);
@@ -92,6 +117,8 @@ public class MainMenuController {
     		stage.setWidth(1000);
     		stage.setTitle("Selected Book");
     		stage.setScene(scene);
+    		Book b = searchList.getSelectionModel().getSelectedItem();
+    		
     		stage.initModality(Modality.APPLICATION_MODAL);
     		stage.show();
     	} catch (Exception e) {

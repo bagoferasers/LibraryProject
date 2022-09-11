@@ -8,40 +8,41 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #003300;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #003300;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainMenuController">
    <center>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1000.0" style="-fx-background-color: d9d9d9;" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane layoutX="50.0" layoutY="55.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <ImageView fitHeight="550.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="BookImage" fitHeight="550.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
                      <effect>
                         <InnerShadow />
                      </effect>
                   </ImageView>
                </children>
             </AnchorPane>
-            <Label layoutX="440.0" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Title of the Book">
+            <Label fx:id="BookAuthor" layoutX="440.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Author of the Book">
                <font>
-                  <Font size="24.0" />
+                  <Font size="12.0" />
                </font>
             </Label>
-            <Label layoutX="440.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Author of the Book">
+            <Label fx:id="BookGenre" layoutX="440.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Genre of the Book">
                <font>
-                  <Font size="14.0" />
+                  <Font size="12.0" />
                </font>
             </Label>
-            <Label layoutX="440.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Hashtags of the Book">
+            <Label fx:id="BookDescription" alignment="TOP_LEFT" layoutX="440.0" layoutY="165.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Description of the Book">
                <font>
-                  <Font size="14.0" />
+                  <Font size="12.0" />
                </font>
             </Label>
-            <Label alignment="TOP_LEFT" layoutX="440.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Description of the Book">
+            <Label fx:id="BookTitle" layoutX="440.0" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Title of the Book" />
+            <Label fx:id="BookHashtags" layoutX="440.0" layoutY="140.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Hashtags of the Book">
                <font>
-                  <Font size="14.0" />
+                  <Font size="12.0" />
                </font>
             </Label>
+            <Text fx:id="testText" layoutX="595.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title of the Book" />
          </children>
       </AnchorPane>
    </center>
