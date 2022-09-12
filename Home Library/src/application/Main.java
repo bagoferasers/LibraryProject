@@ -18,6 +18,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			//URL url = new File("D:\\godot\\ActionRPGTutorial\\LibraryProject\\Home Library\\MainMenu.fxml").toURI().toURL();
 			URL url = new File("MainMenu.fxml").toURI().toURL();
 			BorderPane root = (BorderPane)FXMLLoader.load(url);
 			Scene scene = new Scene(root,1000,800);

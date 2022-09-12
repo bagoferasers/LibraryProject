@@ -10,6 +10,8 @@ import application.model.Hashtag;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -18,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainMenuController {
@@ -76,7 +79,7 @@ public class MainMenuController {
     	try {
     		Book b = searchList.getSelectionModel().getSelectedItem();
     		Library.selected = b;
-    		URL selectBookURL = new File("SelectedBook.fxml").toURI().toURL();
+    		URL selectBookURL = new File("D:\\godot\\ActionRPGTutorial\\LibraryProject\\Home Library\\SelectedBook.fxml").toURI().toURL();
     		borderPane = FXMLLoader.load(selectBookURL);
     		Scene scene = new Scene(borderPane);
     		Stage stage = new Stage();
@@ -91,10 +94,11 @@ public class MainMenuController {
     public void onAddBook(ActionEvent event) {
     	System.out.println("Adding Book!");
     	try {
-			URL addBookURL = new File("NewBook.fxml").toURI().toURL();
+			//URL addBookURL = new File("D:\\godot\\ActionRPGTutorial\\LibraryProject\\Home Library\\NewBook.fxml").toURI().toURL();
+    		URL addBookURL = new File("NewBook.fxml").toURI().toURL();
 			borderPane = FXMLLoader.load(addBookURL);
 			Scene scene = new Scene(borderPane);
-			Stage stage = new Stage();
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			stage.setScene(scene);
 			stage.show();
 		} catch (Exception e) {
