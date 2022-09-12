@@ -9,13 +9,6 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane fx:id="SelectedPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #003300;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.AboutController">
-   <center>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1000.0" style="-fx-background-color: d9d9d9;" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane layoutX="50.0" layoutY="55.0" style="-fx-background-color: #ffffff;" />
-         </children>
-      </AnchorPane>
-   </center>
    <top>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
@@ -30,4 +23,76 @@
          </children>
       </AnchorPane>
    </top>
+   <right>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1000.0" style="-fx-background-color: d9d9d9;" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane layoutX="50.0" prefHeight="660.0" prefWidth="900.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1500.0" prefWidth="880.0" style="-fx-background-color: #d9d9d9;">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="880.0" text="Bailey Library Project" textAlignment="CENTER">
+                           <font>
+                              <Font size="48.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                        </Label>
+                        <Text layoutX="60.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This project was created based on a life-long dream of having a library and work study in my house.  I have always used reading as a way to manage life's stressors.  Reading isn't only something I do for fun; it is something that helps me mentally and physically.  I hope to always be a reader.  Because of this, I chose to create a desktop application that could manage my personal library.  I dream of using this to be able to manage book loans, personal inventory, as well as basic searching and sorting.  In conclusion, this project is a union of passion and education." wrappingWidth="752.205078125">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="400.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="880.0" text="About Me" textAlignment="CENTER">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                           <font>
+                              <Font size="48.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="400.0" fitWidth="400.0" layoutX="65.0" layoutY="525.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@src/application/view/me.jpg" />
+                           </image>
+                        </ImageView>
+                        <Text layoutX="500.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello everyone my name is Colby Bailey.  I'm from Coos Bay, Oregon and am a USAF Veteran.  In service, I was a Radio Frequency Transmission Systems Supervisor. Currently, I'm a Computer Science Student at the UT in San Antonio. I also have a BS in IT Operations Management and an AS in Electronic Systems Technology.  My career goal is to be a software developer." wrappingWidth="319.8717041015625">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="60.0" layoutY="970.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I'm married and enjoy a hair filled home with two dogs and two cats.  My hobbies include reading (obviously), hiking, fishing, camping, playing video games, gardening, and talking about my addiction to roller coasters." wrappingWidth="752.205078125">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="1100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="880.0" text="About Project" textAlignment="CENTER">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                           <font>
+                              <Font size="48.0" />
+                           </font>
+                        </Label>
+                        <Text layoutX="60.0" layoutY="1230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This was created in Eclipse IDE and in javaFX Scene Builder.  Libraries include JavaFX SDK and JRE System Library [jre1.8.0_333]." wrappingWidth="752.205078125">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </AnchorPane>
+   </right>
+   <effect>
+      <InnerShadow />
+   </effect>
 </BorderPane>
