@@ -1,26 +1,19 @@
-/**
- * 
- */
 package application.model;
 
-/**
- * @author colbybailey
- *
- */
 public class Author {
 	private String firstName;
 	private String lastName;
 	
 	public Author( String firstName, String lastName ) {
-		this.setFirstName(firstName);
-		this.setLastName(lastName);
+		this.setFirstName( firstName );
+		this.setLastName( lastName );
 	}
 	
-	public String getFirstName() {
+	public String getFirstName( ) {
 		return firstName;
 	}
 	
-	public void setFirstName(String firstName) {
+	public void setFirstName( String firstName ) {
 		this.firstName = firstName;
 	}
 	
@@ -33,7 +26,7 @@ public class Author {
 	}
 	
 	@Override
-	public String toString() {
-		return this.getFirstName() + " " + this.getLastName();
+	public String toString( ) {
+		return this.getFirstName( ) + " " + this.getLastName( );
 	}
 }

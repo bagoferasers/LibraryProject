@@ -11,19 +11,19 @@ public class Genre {
 	private String genreName;
 	
 	public Genre( String genreName ) {
-		this.setGenreName(genreName);
+		this.setGenreName( genreName );
 	}
 
-	public String getGenreName() {
+	public String getGenreName( ) {
 		return genreName;
 	}
 
-	public void setGenreName(String genreName) {
+	public void setGenreName( String genreName ) {
 		this.genreName = genreName;
 	}
 	
 	@Override
-	public String toString() {
+	public String toString( ) {
 		return this.genreName;
 	}
 }

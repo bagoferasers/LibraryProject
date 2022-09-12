@@ -42,16 +42,16 @@ public class NewBookController {
     private Button goHome;
 
     @FXML
-    void goHome(ActionEvent event) {
+    void goHome( ActionEvent event ) {
     	try {
-    		URL addBookURL = new File("MainMenu.fxml").toURI().toURL();
-			Parent root = FXMLLoader.load(addBookURL);
-			Scene scene = new Scene(root);
-			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			stage.setScene(scene);
-			stage.show();
-		} catch (Exception e) {
-			e.printStackTrace();
+    		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
+			Parent root = FXMLLoader.load( addBookURL );
+			Scene scene = new Scene( root );
+			Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
+			stage.setScene( scene );
+			stage.show( );
+		} catch ( Exception e ) {
+			e.printStackTrace( );
 		}
     }
 }

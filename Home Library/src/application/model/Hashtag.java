@@ -1,18 +1,18 @@
 package application.model;
 
 public class Hashtag {
-	 String[] hashtagNames;
+	 String[ ] hashtagNames;
 	 
-	 public Hashtag(String[] n) {
+	 public Hashtag( String[ ] n ) {
 		 this.hashtagNames = n;
 	 }
 	 
 	 @Override
-	 public String toString() {
+	 public String toString( ) {
 		 String s = "";
-		 for(int i = 0; i < this.hashtagNames.length; i++) {
-			 s += "#" + this.hashtagNames[i] + " ";
+		 for( int i = 0; i < this.hashtagNames.length; i++ ) {
+			 s += "#" + this.hashtagNames[ i ] + " ";
 		 }
-		 return s.toString();
+		 return s.toString( );
 	 }
 }
