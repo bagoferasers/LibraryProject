@@ -104,7 +104,21 @@ public class MainMenuController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-    	
+    }
+    
+    @FXML
+    public void goAbout(ActionEvent event) {
+    	System.out.println("Going to about!");
+    	try {
+    		URL aboutURL = new File("About.fxml").toURI().toURL();
+    		borderPane = FXMLLoader.load(aboutURL);
+    		Scene scene = new Scene(borderPane);
+    		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    		stage.setScene(scene);
+    		stage.show();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
     }
 }
 
