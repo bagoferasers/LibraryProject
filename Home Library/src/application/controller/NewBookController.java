@@ -2,7 +2,6 @@ package application.controller;
 
 import java.io.File;
 import java.net.URL;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

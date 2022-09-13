@@ -2,6 +2,7 @@ package application;
 
 import java.io.File;
 import java.net.URL;
+import application.model.Library;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -26,7 +27,7 @@ public class Main extends Application {
 	}
 	
 	public static void main( String[ ] args ) {
+		Library.loadLibrary();
 		launch( args );
 	}
-
 }

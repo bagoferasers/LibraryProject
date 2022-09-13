@@ -6,12 +6,12 @@ public class Book {
     private Image BookImage;
 	private String name;
 	private String description;
-	private Hashtag hashtags;
+	private String hashtags;
 	private Author author;
-	private Genre genre;
+	private String genre;
 	
 	public Book( Image BookImage, String name, String description,
-		         Hashtag hashtags, Author author, Genre genre ) {
+			String hashtags, Author author, String genre ) {
 		this.setPicture( BookImage );
 		this.setName( name );
 		this.setDescription( description );
@@ -20,6 +20,15 @@ public class Book {
 		this.setGenre( genre );
 	}
 	
+	public Book() {
+		this.setPicture(null);
+		this.setName("");
+		this.setDescription("");
+		this.setHashtags("");
+		this.setAuthor(null);
+		this.setGenre(null);
+	}
+
 	public Image getPicture( ) {
 		return BookImage;
 	}
@@ -44,19 +53,24 @@ public class Book {
 		this.description = description;
 	}
 	
-	public Hashtag getHashtags( ) {
-		return hashtags;
+	public String getHashtags( ) {
+		String s[] = hashtags.split("/");
+		String h = "";
+		 for( int i = 0; i < s.length; i++ ) {
+			 h += "#" + s[ i ] + " ";
+		 }
+		return h;
 	}
 	
-	public void setHashtags( Hashtag hashtags ) {
+	public void setHashtags( String hashtags ) {
 		this.hashtags = hashtags;
 	}
 	
-	public Genre getGenre( ) {
+	public String getGenre( ) {
 		return genre;
 	}
 	
-	public void setGenre( Genre genre ) {
+	public void setGenre( String genre ) {
 		this.genre = genre;
 	}
 
@@ -70,6 +84,6 @@ public class Book {
 	
 	@Override
 	public String toString( ) {
-		return this.name + " by " + this.author + " ( " + this.genre + " ) " + this.hashtags;
+		return this.name + " by " + this.author + " ( " + this.genre + " ) " + this.getHashtags( );
 	}
 }
