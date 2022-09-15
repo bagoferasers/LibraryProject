@@ -19,7 +19,7 @@ public class Library {
 			String row = csvReader.readLine( );
 			//while csv isn't null, read a new line into a Book object
 			while ( ( row = csvReader.readLine( ) ) != null ) {
-				String[] bookData = row.split( ",", 6);
+				String[] bookData = row.split( ",", 7);
 				b.setName( bookData[ 0 ] );
 				Author a = new Author();
 				a.setLastName( bookData[ 1 ] );
@@ -28,6 +28,7 @@ public class Library {
 				b.setGenre( bookData[ 3 ] );
 				b.setHashtags( bookData[ 4 ] );
 				b.setDescription( bookData[ 5 ] );
+				b.setISBN( bookData[ 6 ] );
 				//once book object is complete, add to library
 				Library.books.add(b);
 				//clear out local b object

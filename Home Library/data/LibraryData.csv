@@ -1,3 +1,7 @@
-﻿BOOK_NAME,BOOK_AUTHOR_LAST,BOOK_AUTHOR_FIRST,BOOK_GENRE,BOOK_HASHTAGS,BOOK_DESCRIPTION
-The Hobbit : or There and Back Again,Tolkien,J.R.R. ,Fantasy,Fantasy/Dragons/Magic/Elves/Dwarfs/Trolls/Goblins/Adventure,"A great modern classic and the prelude to The Lord of The Rings. From J.R.R. Tolkien's own description for the original edition: ""If you care for journeys there and back, out of the comfortable Western world, over the edge of the Wild, and home again, and can take an interest in a humble hero ( blessed with a little wisdom and a little courage and considerable good luck ), here is a record of such a journey and such a traveler. . . . In following the path of this humble adventurer, you will learn by the way ( as he did ) - if you do not already know about these things - much about trolls, goblins, dwarves, and elves, and get some glimpses into the history and politics of a neglected but important period."""
-The Lord of the Rings : The Fellowship of the Ring,Tolkien,J.R.R. ,Fantasy,Fantasy/Dragons/Magic/Elves/Dwarfs/Trolls/Goblins/Adventure,"The dark, fearsome Ringwraiths were searching for a hobbit. Frodo Baggins knew they were seeking him and the Ring he bore - the Ring of Power that would enable evil Sauron to destroy all that was good in Middle-Earth. Now it is up to Frodo and his faithful servant, Sam, with a small band of companions, to carry the Ring to the one place it could be destroyed - Mount Doom, in the very center of Sauron's dark kingdom."
+﻿BOOK_TITLE,BOOK_AUTHORFIRST,BOOK_AUTHORLAST,BOOK_GENRE,BOOK_HASHTAGS,BOOK_DESCRIPTION,BOOK_ISBN
+book 1,author,1,genre 1,h1/h2/h3,description,1
+book 2,author,2,genre 2,h1/ h2/ h3,desa;sldkjf;alskdjfaoshdfoi,12
+book 3,colby,bailey,fantasy,halo/game,this is a book wow,1234
+book 4,colby,hobag,no,no,no,321
+book5 ,5,,5,5,5,2435346
+book 6,author,6,6,6,6,34536235

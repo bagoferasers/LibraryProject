@@ -9,17 +9,19 @@ public class Book {
 	private String hashtags;
 	private Author author;
 	private String genre;
+	private String ISBN;
 	
 	public Book( Image BookImage, String name, String description,
-			String hashtags, Author author, String genre ) {
+			String hashtags, Author author, String genre, String ISBN) {
 		this.setPicture( BookImage );
 		this.setName( name );
 		this.setDescription( description );
 		this.setHashtags( hashtags );
 		this.setAuthor( author );
 		this.setGenre( genre );
+		this.setISBN(ISBN);
 	}
-	
+
 	public Book() {
 		this.setPicture(null);
 		this.setName("");
@@ -27,6 +29,7 @@ public class Book {
 		this.setHashtags("");
 		this.setAuthor(null);
 		this.setGenre(null);
+		this.setISBN("");
 	}
 
 	public Image getPicture( ) {
@@ -80,6 +83,14 @@ public class Book {
 
 	public void setAuthor( Author author ) {
 		this.author = author;
+	}
+	
+	public void setISBN(String i) {
+		this.ISBN = i;
+	}
+	
+	public String getISBN() {
+		return ISBN;
 	}
 	
 	@Override
