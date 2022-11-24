@@ -88,6 +88,7 @@ public class NewBookController {
     @FXML
     void goSubmit( ActionEvent event ) {
     	try {
+    		System.out.println("entered goSubmit");
     		//if anything is blank on goSubmit, continue to main
     		if ( enterTitle.getText().length() == 0 ||
     			 enterAuthor.getText().length() == 0 ||
@@ -97,14 +98,15 @@ public class NewBookController {
     			 enterISBN.getText().length() == 0 ) {
     			System.out.println("Not everything is filled. Please fill all text areas.");
     		}
-    		//if everything isn't blank, add book to library
     		else {
+    			System.out.println("entered else.");
     			FileWriter csvWriter = new FileWriter( "data/LibraryData.csv", true );
     			csvWriter.append("\n");
     			csvWriter.append(enterTitle.getText());
     			csvWriter.append(",");
     			String fullName [ ] = enterAuthor.getText().split(" ", 2);
     			if ( fullName.length != 2 ) {
+    				System.out.println("Name is not full.");
     				String firstName = fullName[ 0 ];
     				csvWriter.append(firstName);
     				csvWriter.append(",");
@@ -113,6 +115,7 @@ public class NewBookController {
     				csvWriter.append(",");
     			}
     			else {
+    				System.out.println("Name is full.");
     				String firstName = fullName[ 0 ];
     				csvWriter.append(firstName);
     				csvWriter.append(",");
@@ -127,6 +130,8 @@ public class NewBookController {
     			csvWriter.append(enterDescription.getText());
     			csvWriter.append(",");
     			csvWriter.append(enterISBN.getText());
+    			csvWriter.append(",");
+    			csvWriter.append(enterImagePath.getText());
     			csvWriter.close();	
     			//return Library search?
     			Library.books.clear();

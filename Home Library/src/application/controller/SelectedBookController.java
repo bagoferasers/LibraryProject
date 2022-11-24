@@ -1,12 +1,18 @@
 package application.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.imageio.ImageIO;
+
 import application.model.Library;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
@@ -48,7 +54,10 @@ public class SelectedBookController implements Initializable {
 		BookHashtags.setText( Library.selected.getHashtags( ).toString( ) );
 		BookAuthor.setText( Library.selected.getAuthor( ).toString( ) );
 		BookDescription.setText( Library.selected.getDescription( ) );
-		BookImage.setImage( Library.selected.getPicture( ) );
+		//String imagePath = Library.selected.getPicture();
+		Image myPicture = new Image("data/book1.png");
+;
+		BookImage.setImage( myPicture );
 	}
     
     @FXML

@@ -3,7 +3,7 @@ package application.model;
 import javafx.scene.image.Image;
 
 public class Book {
-    private Image BookImage;
+    private String BookImage;
 	private String name;
 	private String description;
 	private String hashtags;
@@ -11,7 +11,7 @@ public class Book {
 	private String genre;
 	private String ISBN;
 	
-	public Book( Image BookImage, String name, String description,
+	public Book( String BookImage, String name, String description,
 			String hashtags, Author author, String genre, String ISBN) {
 		this.setPicture( BookImage );
 		this.setName( name );
@@ -32,12 +32,14 @@ public class Book {
 		this.setISBN("");
 	}
 
-	public Image getPicture( ) {
-		return BookImage;
+	public String getPicture( ) {
+		System.out.println("entered getPicture()");
+		return BookImage;		
 	}
 	
-	public void setPicture( Image BookImage ) {
+	public void setPicture( String BookImage ) {
 		this.BookImage = BookImage;
+
 	}
 	
 	public String getName( ) {

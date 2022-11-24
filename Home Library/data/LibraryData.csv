@@ -1,7 +1,9 @@
 ﻿BOOK_TITLE,BOOK_AUTHORFIRST,BOOK_AUTHORLAST,BOOK_GENRE,BOOK_HASHTAGS,BOOK_DESCRIPTION,BOOK_ISBN
-book 1,author,1,genre 1,h1/h2/h3,description,1
-book 2,author,2,genre 2,h1/ h2/ h3,desa;sldkjf;alskdjfaoshdfoi,12
-book 3,colby,bailey,fantasy,halo/game,this is a book wow,1234
-book 4,colby,hobag,no,no,no,321
-book5 ,5,,5,5,5,2435346
-book 6,author,6,6,6,6,34536235
+a,a,,a,a/b/c/d,asdf,1234
+book1,author1,,genre1,hash/tag,description1	,1
+a,a,,a,z,z		,123456,data/book1
+1,1,,1,1,1,1,data/book1.PNG
+b,b,,b,b,b,6,data/book1.PNG
+z,z,,z,z,z,0,data/book1.PNG
+x,x,,x,xx,x,7,data/book1.PNG
+g,g,,g,g,g,56,data/book1.PNG
