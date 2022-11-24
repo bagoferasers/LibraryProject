@@ -2,12 +2,16 @@ package application.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
 
 import application.model.Library;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -55,9 +59,17 @@ public class SelectedBookController implements Initializable {
 		BookAuthor.setText( Library.selected.getAuthor( ).toString( ) );
 		BookDescription.setText( Library.selected.getDescription( ) );
 		//String imagePath = Library.selected.getPicture();
-		Image myPicture = new Image("data/book1.png");
-;
-		BookImage.setImage( myPicture );
+		//BufferedImage myPicture = new BufferedImage("data/book1.png");
+	    InputStream stream;
+		try {
+			stream = new FileInputStream("data/book1.png");	    
+			Image i = new Image(stream);
+			BookImage.setImage( i );
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
     
     @FXML

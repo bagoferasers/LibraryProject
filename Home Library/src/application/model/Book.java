@@ -39,7 +39,6 @@ public class Book {
 	
 	public void setPicture( String BookImage ) {
 		this.BookImage = BookImage;
-
 	}
 	
 	public String getName( ) {
