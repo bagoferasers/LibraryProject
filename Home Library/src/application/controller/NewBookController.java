@@ -131,16 +131,13 @@ public class NewBookController {
     		//else add book then continue to main
 
 	    	//return to home scene 
-	    	///*
     		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
 			Parent root = FXMLLoader.load( addBookURL );
 			Scene scene = new Scene( root );
 			Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
 			stage.setScene( scene );
 			stage.show( );
-			//*/
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }

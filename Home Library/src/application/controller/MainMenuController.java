@@ -59,7 +59,7 @@ public class MainMenuController {
     		URL selectBookURL = new File( "SelectedBook.fxml" ).toURI( ).toURL( );
     		borderPane = FXMLLoader.load( selectBookURL );
     		Scene scene = new Scene( borderPane );
-    		Stage stage = new Stage( );
+    		Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
     		stage.setScene( scene );
     		stage.show( );
     	} catch ( Exception e ) {
