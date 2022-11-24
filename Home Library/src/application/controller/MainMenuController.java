@@ -56,7 +56,7 @@ public class MainMenuController {
     	try {
     		Book b = searchList.getSelectionModel( ).getSelectedItem( );
     		Library.selected = b;
-    		URL selectBookURL = new File( "D:\\godot\\ActionRPGTutorial\\LibraryProject\\Home Library\\SelectedBook.fxml" ).toURI( ).toURL( );
+    		URL selectBookURL = new File( "SelectedBook.fxml" ).toURI( ).toURL( );
     		borderPane = FXMLLoader.load( selectBookURL );
     		Scene scene = new Scene( borderPane );
     		Stage stage = new Stage( );
