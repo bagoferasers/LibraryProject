@@ -45,8 +45,10 @@ public class MainMenuController {
     
     @FXML
 	public void onSearch( ActionEvent event ) {
+    	System.out.println("entered onSearch");
     	Library.searchedBooks.clear();
     	if( Library.books != null ) {
+    		System.out.println("Library.books != null");
     		searchList.setItems( Library.books );
     	}
     }

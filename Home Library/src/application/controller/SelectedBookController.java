@@ -64,7 +64,7 @@ public class SelectedBookController implements Initializable {
 		BookImage.setImage(i);
 	}
     
-    public void deleteBook( ) throws IOException {
+    public void deleteBook( ActionEvent event ) throws IOException {
     	//create temporary file to write to
     	File tmp = new File("data/tmp.csv");
     	tmp.getParentFile().mkdirs(); 
@@ -74,8 +74,9 @@ public class SelectedBookController implements Initializable {
     	try (
     	BufferedReader csvReader = new BufferedReader( new FileReader( libData ) )) {
     	BufferedWriter csvWriter = new BufferedWriter( new FileWriter( tmp ) );
-    	// remove header
+    	// remove header and add header
     	String row = csvReader.readLine();
+    	csvWriter.append(row);
 		//find row that book is on and continue
     	while ( ( row = csvReader.readLine()) != null ) {
 			String [] bookData = row.split(",");
@@ -84,14 +85,23 @@ public class SelectedBookController implements Initializable {
 				continue;
 			}
 			//if not book, append to temp file
+			csvWriter.append("\n");
 			csvWriter.append(row);
 		}
     	//remove old LibraryData.csv and rename temporary file to LibraryData.csv
 		libData.delete();
 		tmp.renameTo(libData);
-        
 		csvWriter.close();
 		csvReader.close();
+		Library.books.remove(Library.selected);
+		Library.loadLibrary();
+		//return to home
+		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
+		Parent root = FXMLLoader.load( addBookURL );
+		Scene scene = new Scene( root );
+		Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
+		stage.setScene( scene );
+		stage.show( );
     	} catch (IOException e) {
 			e.printStackTrace();
 		}
