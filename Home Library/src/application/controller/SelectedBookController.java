@@ -1,8 +1,11 @@
 package application.controller;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import application.model.Library;
@@ -60,6 +63,39 @@ public class SelectedBookController implements Initializable {
 		Image i = new Image(Library.selected.getPicture());
 		BookImage.setImage(i);
 	}
+    
+    public void deleteBook( ) throws IOException {
+    	//create temporary file to write to
+    	File tmp = new File("data/tmp.csv");
+    	tmp.getParentFile().mkdirs(); 
+    	tmp.createNewFile();
+    	//open LibraryData.csv
+    	File libData = new File( "data/LibraryData.csv" );
+    	try (
+    	BufferedReader csvReader = new BufferedReader( new FileReader( libData ) )) {
+    	BufferedWriter csvWriter = new BufferedWriter( new FileWriter( tmp ) );
+    	// remove header
+    	String row = csvReader.readLine();
+		//find row that book is on and continue
+    	while ( ( row = csvReader.readLine()) != null ) {
+			String [] bookData = row.split(",");
+			if(Integer.valueOf(bookData[ 6 ]) == Library.selected.getISBN()) {
+				System.out.println("Found Book");
+				continue;
+			}
+			//if not book, append to temp file
+			csvWriter.append(row);
+		}
+    	//remove old LibraryData.csv and rename temporary file to LibraryData.csv
+		libData.delete();
+		tmp.renameTo(libData);
+        
+		csvWriter.close();
+		csvReader.close();
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
     
     @FXML
     void goHome( ActionEvent event ) throws IOException {
