@@ -1,25 +1,43 @@
 package application.model;
 
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+
 import javafx.scene.image.Image;
 
 public class Book {
-    private Image BookImage;
+    private String BookImage;
 	private String name;
 	private String description;
 	private String hashtags;
 	private Author author;
 	private String genre;
+	private int ISBN;
 	
-	public Book( Image BookImage, String name, String description,
-			String hashtags, Author author, String genre ) {
+	public Book( String BookImage, String name, String description,
+			String hashtags, Author author, String genre, int ISBN) {
 		this.setPicture( BookImage );
 		this.setName( name );
 		this.setDescription( description );
 		this.setHashtags( hashtags );
 		this.setAuthor( author );
 		this.setGenre( genre );
+		this.setISBN( ISBN );
 	}
 	
+	public void setISBN(int i) {
+		this.ISBN = i;
+	}
+	
+	public int getISBN( ) {
+		return ISBN;
+	}
+
 	public Book() {
 		this.setPicture(null);
 		this.setName("");
@@ -27,13 +45,14 @@ public class Book {
 		this.setHashtags("");
 		this.setAuthor(null);
 		this.setGenre(null);
+		this.setISBN(0);
 	}
 
-	public Image getPicture( ) {
+	public String getPicture( ) {
 		return BookImage;
 	}
 	
-	public void setPicture( Image BookImage ) {
+	public void setPicture( String BookImage ) {
 		this.BookImage = BookImage;
 	}
 	
@@ -81,6 +100,7 @@ public class Book {
 	public void setAuthor( Author author ) {
 		this.author = author;
 	}
+	
 	
 	@Override
 	public String toString( ) {
