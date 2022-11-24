@@ -1,10 +1,5 @@
 package application.controller;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import application.model.Library;
