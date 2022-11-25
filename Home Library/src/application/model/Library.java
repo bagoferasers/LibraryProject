@@ -12,7 +12,6 @@ public class Library {
 	
 	public static void loadLibrary() {
 		try {
-			System.out.println("entered loadLibrary()");
 			Library.books.clear();
 			//create objects
 			BufferedReader csvReader = new BufferedReader( new FileReader( "data/LibraryData.csv" ) );
@@ -21,7 +20,6 @@ public class Library {
 			String row = csvReader.readLine( );
 			//while csv isn't null, read a new line into a Book object
 			while ( ( row = csvReader.readLine( ) ) != null ) {
-				System.out.println("reading line");
 				String[] bookData = row.split(",");
 				b.setName( bookData[ 0 ] );
 				Author a = new Author();
