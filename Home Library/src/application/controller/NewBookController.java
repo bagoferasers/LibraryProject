@@ -1,14 +1,9 @@
 package application.controller;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URL;
-
-import application.model.Author;
-import application.model.Book;
 import application.model.Library;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -88,7 +83,6 @@ public class NewBookController {
     @FXML
     void goSubmit( ActionEvent event ) {
     	try {
-    		System.out.println("entered goSubmit");
     		//if anything is blank on goSubmit, continue to main
     		if ( enterTitle.getText().length() == 0 ||
     			 enterAuthor.getText().length() == 0 ||
@@ -99,14 +93,12 @@ public class NewBookController {
     			System.out.println("Not everything is filled. Please fill all text areas.");
     		}
     		else {
-    			System.out.println("entered else.");
     			FileWriter csvWriter = new FileWriter( "data/LibraryData.csv", true );
     			csvWriter.append("\n");
     			csvWriter.append(enterTitle.getText());
     			csvWriter.append(",");
     			String fullName [ ] = enterAuthor.getText().split(" ", 2);
     			if ( fullName.length != 2 ) {
-    				System.out.println("Name is not full.");
     				String firstName = fullName[ 0 ];
     				csvWriter.append(firstName);
     				csvWriter.append(",");
@@ -115,7 +107,6 @@ public class NewBookController {
     				csvWriter.append(",");
     			}
     			else {
-    				System.out.println("Name is full.");
     				String firstName = fullName[ 0 ];
     				csvWriter.append(firstName);
     				csvWriter.append(",");
@@ -140,16 +131,13 @@ public class NewBookController {
     		//else add book then continue to main
 
 	    	//return to home scene 
-	    	///*
     		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
 			Parent root = FXMLLoader.load( addBookURL );
 			Scene scene = new Scene( root );
 			Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
 			stage.setScene( scene );
 			stage.show( );
-			//*/
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }

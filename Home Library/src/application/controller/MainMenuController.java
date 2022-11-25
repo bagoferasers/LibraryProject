@@ -45,9 +45,24 @@ public class MainMenuController {
     
     @FXML
 	public void onSearch( ActionEvent event ) {
+    	//initialize by clearing previous searchedBooks
     	Library.searchedBooks.clear();
+    	//if library has books
     	if( Library.books != null ) {
-    		searchList.setItems( Library.books );
+    		//if bookButton is selected, search library for books and add to searchedBooks
+    		
+    		//if hashtagsButton is selected, search library for hashtags and add to searchedBooks
+    		
+    		//if authorsButton is selected, search library for authors and add to searchedBooks
+    		
+    		//if genresButton is selected, search library for authors and add to searchedBooks
+    		
+    		//if nothing is selected, add entire library to searchedBooks
+    		if( !bookButton.isSelected() && !hashtagsButton.isSelected() && !authorsButton.isSelected() && !genresButton.isSelected() ) {
+    			System.out.println("No radio button selected, displaying all books in library.");
+    			Library.searchedBooks.addAll(Library.books);
+    			searchList.setItems( Library.searchedBooks );
+    		}
     	}
     }
     
@@ -59,7 +74,7 @@ public class MainMenuController {
     		URL selectBookURL = new File( "SelectedBook.fxml" ).toURI( ).toURL( );
     		borderPane = FXMLLoader.load( selectBookURL );
     		Scene scene = new Scene( borderPane );
-    		Stage stage = new Stage( );
+    		Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
     		stage.setScene( scene );
     		stage.show( );
     	} catch ( Exception e ) {

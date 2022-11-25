@@ -12,6 +12,7 @@ public class Library {
 	
 	public static void loadLibrary() {
 		try {
+			Library.books.clear();
 			//create objects
 			BufferedReader csvReader = new BufferedReader( new FileReader( "data/LibraryData.csv" ) );
 			Book b = new Book();
