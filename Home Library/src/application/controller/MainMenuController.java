@@ -4,7 +4,6 @@ import application.model.Library;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import application.model.Book;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -130,6 +129,12 @@ public class MainMenuController implements Initializable {
     			&& Library.searchedBooks.isEmpty()) {
     			Library.searchedBooks.addAll(Library.books);
     			//searchList.setItems( Library.searchedBooks );
+    		}
+    		//if nothing is found
+    		if( Library.searchedBooks.isEmpty() ) {
+    			searchField.clear();
+    			searchField.setPromptText("Nothing found.");
+    			
     		}
     		searchList.setItems(Library.searchedBooks);
     	}
