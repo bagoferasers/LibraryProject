@@ -86,14 +86,17 @@ public class Book {
 		this.author = author;
 	}
 	
-	
-	@Override
-	public String toString( ) {
+	public String hashtagToString( ) {
 		String s[] = hashtags.split("/");
 		String h = "";
 		for( int i = 0; i < s.length; i++ ) {
 			h += "#" + s[ i ] + " ";
 		}
-		return this.name + " by " + this.author + " ( " + this.genre + " ) " + h;
+		return h;
+	}
+	
+	@Override
+	public String toString( ) {
+		return this.name + " by " + this.author + " ( " + this.genre + " ) " + this.hashtagToString();
 	}
 }

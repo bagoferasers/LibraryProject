@@ -57,7 +57,7 @@ public class SelectedBookController implements Initializable {
 	public void initialize( URL location, ResourceBundle resources ) {
 		BookTitle.setText( Library.selected.getName( ) );
 		BookGenre.setText( Library.selected.getGenre( ).toString( ) );
-		BookHashtags.setText( Library.selected.getHashtags( ).toString( ) );
+		BookHashtags.setText( Library.selected.hashtagToString( ) );
 		BookAuthor.setText( Library.selected.getAuthor( ).toString( ) );
 		BookDescription.setText( Library.selected.getDescription( ) );
 		Image i = new Image(Library.selected.getPicture());
