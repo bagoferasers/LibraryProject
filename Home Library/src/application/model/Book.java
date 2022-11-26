@@ -63,12 +63,7 @@ public class Book {
 	}
 	
 	public String getHashtags( ) {
-		String s[] = hashtags.split("/");
-		String h = "";
-		 for( int i = 0; i < s.length; i++ ) {
-			 h += "#" + s[ i ] + " ";
-		 }
-		return h;
+		return hashtags;
 	}
 	
 	public void setHashtags( String hashtags ) {
@@ -94,6 +89,11 @@ public class Book {
 	
 	@Override
 	public String toString( ) {
-		return this.name + " by " + this.author + " ( " + this.genre + " ) " + this.getHashtags( );
+		String s[] = hashtags.split("/");
+		String h = "";
+		for( int i = 0; i < s.length; i++ ) {
+			h += "#" + s[ i ] + " ";
+		}
+		return this.name + " by " + this.author + " ( " + this.genre + " ) " + h;
 	}
 }
