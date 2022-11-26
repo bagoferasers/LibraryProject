@@ -50,19 +50,81 @@ public class MainMenuController {
     	//if library has books
     	if( Library.books != null ) {
     		//if bookButton is selected, search library for books and add to searchedBooks
-    		
-    		//if hashtagsButton is selected, search library for hashtags and add to searchedBooks
-    		
-    		//if authorsButton is selected, search library for authors and add to searchedBooks
-    		
-    		//if genresButton is selected, search library for authors and add to searchedBooks
-    		
-    		//if nothing is selected, add entire library to searchedBooks
-    		if( !bookButton.isSelected() && !hashtagsButton.isSelected() && !authorsButton.isSelected() && !genresButton.isSelected() ) {
-    			System.out.println("No radio button selected, displaying all books in library.");
-    			Library.searchedBooks.addAll(Library.books);
-    			searchList.setItems( Library.searchedBooks );
+    		if( bookButton.isSelected()) {
+    			//if nothing is in the searchField, display all books
+    			if(searchField.getText().isEmpty() && Library.searchedBooks.isEmpty()) {
+    				Library.searchedBooks.addAll(Library.books);
+    			}
+    			else {
+    				//search books for keyword
+    				for(int i = 0; i < Library.books.size(); i++ ) {
+    					//if book at position i contains keyword, add to searchedBooks
+    					if(Library.books.get(i).getName().toLowerCase().equals(searchField.getText().toLowerCase()) 
+    					   && !Library.searchedBooks.contains(Library.books.get(i))) {
+    						Library.searchedBooks.add(Library.books.get(i));
+    					}
+    				}
+    			}
     		}
+    		//if hashtagsButton is selected, search library for hashtags and add to searchedBooks
+    		if( hashtagsButton.isSelected()) {
+    			//if nothing is in the searchField, display all books
+    			if(searchField.getText().isEmpty() && Library.searchedBooks.isEmpty()) {
+    				Library.searchedBooks.addAll(Library.books);
+    			}
+    			else {
+    				//search books for keyword
+    				for(int i = 0; i < Library.books.size(); i++ ) {
+    					//if book at position i contains keyword, add to searchedBooks
+    					if(Library.books.get(i).getHashtags().toLowerCase().contains(searchField.getText().toLowerCase())
+    					   && !Library.searchedBooks.contains(Library.books.get(i))) {
+    						Library.searchedBooks.add(Library.books.get(i));
+    					}
+    				}
+    			}
+    		}
+    		//if authorsButton is selected, search library for authors and add to searchedBooks
+    		if( authorsButton.isSelected()) {
+    			//if nothing is in the searchField, display all books
+    			if(searchField.getText().isEmpty() && Library.searchedBooks.isEmpty()) {
+    				Library.searchedBooks.addAll(Library.books);
+    			}
+    			else {
+    				//search books for keyword
+    				for(int i = 0; i < Library.books.size(); i++ ) {
+    					//if book at position i contains keyword, add to searchedBooks
+    					if(Library.books.get(i).getAuthor().getFirstName().toLowerCase().equals(searchField.getText().toLowerCase())
+    					   || Library.books.get(i).getAuthor().getLastName().toLowerCase().equals(searchField.getText().toLowerCase())
+    					   && !Library.searchedBooks.contains(Library.books.get(i))) {
+    						Library.searchedBooks.add(Library.books.get(i));
+    					}
+    				}
+    			}
+    		}
+    		//if genresButton is selected, search library for authors and add to searchedBooks
+    		if( genresButton.isSelected()) {
+    			//if nothing is in the searchField, display all books
+    			if(searchField.getText().isEmpty() && Library.searchedBooks.isEmpty()) {
+    				Library.searchedBooks.addAll(Library.books);
+    			}
+    			else {
+    				//search books for keyword
+    				for(int i = 0; i < Library.books.size(); i++ ) {
+    					//if book at position i contains keyword, add to searchedBooks
+    					if(Library.books.get(i).getGenre().toLowerCase().equals(searchField.getText().toLowerCase())
+    					   && !Library.searchedBooks.contains(Library.books.get(i))) {
+    						Library.searchedBooks.add(Library.books.get(i));
+    					}
+    				}
+    			}
+    		}
+    		//if nothing is selected, add entire library to searchedBooks
+    		if( !bookButton.isSelected() && !hashtagsButton.isSelected() && !authorsButton.isSelected() && !genresButton.isSelected() 
+    			&& Library.searchedBooks.isEmpty()) {
+    			Library.searchedBooks.addAll(Library.books);
+    			//searchList.setItems( Library.searchedBooks );
+    		}
+    		searchList.setItems(Library.searchedBooks);
     	}
     }
     
