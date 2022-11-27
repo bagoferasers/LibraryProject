@@ -8,9 +8,10 @@ public class Book {
 	private Author author;
 	private String genre;
 	private int ISBN;
+	private String format;
 	
 	public Book( String BookImage, String name, String description,
-			String hashtags, Author author, String genre, int ISBN) {
+			String hashtags, Author author, String genre, int ISBN, String format) {
 		this.setPicture( BookImage );
 		this.setName( name );
 		this.setDescription( description );
@@ -18,16 +19,9 @@ public class Book {
 		this.setAuthor( author );
 		this.setGenre( genre );
 		this.setISBN( ISBN );
+		this.setFormat(format);
 	}
 	
-	public void setISBN(int i) {
-		this.ISBN = i;
-	}
-	
-	public int getISBN( ) {
-		return ISBN;
-	}
-
 	public Book() {
 		this.setPicture(null);
 		this.setName("");
@@ -36,8 +30,25 @@ public class Book {
 		this.setAuthor(null);
 		this.setGenre(null);
 		this.setISBN(0);
+		this.setFormat("");
+	}
+	
+	public void setFormat( String f ) {
+		this.format = f;
+	}
+	
+	public String getFormat( ) {
+		return format;
 	}
 
+	public void setISBN(int i) {
+		this.ISBN = i;
+	}
+	
+	public int getISBN( ) {
+		return ISBN;
+	}
+	
 	public String getPicture( ) {
 		return BookImage;
 	}

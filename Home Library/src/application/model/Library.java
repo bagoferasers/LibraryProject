@@ -31,6 +31,7 @@ public class Library {
 				b.setDescription( bookData[ 5 ] );
 				b.setISBN( Integer.valueOf(bookData[ 6 ] ) );
 				b.setPicture( bookData[ 7 ] );
+				b.setFormat(bookData[8]);
 				//once book object is complete, add to library
 				Library.books.add(b);
 				//clear out local b object
