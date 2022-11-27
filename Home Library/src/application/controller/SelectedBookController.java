@@ -89,7 +89,6 @@ public class SelectedBookController implements Initializable {
     	while ( ( row = csvReader.readLine()) != null ) {
 			String [] bookData = row.split(",");
 			if(Integer.valueOf(bookData[ 6 ]) == Library.selected.getISBN()) {
-				System.out.println("Found Book");
 				continue;
 			}
 			//if not book, append to temp file
