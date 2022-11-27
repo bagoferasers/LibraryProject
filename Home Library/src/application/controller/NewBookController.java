@@ -65,6 +65,12 @@ public class NewBookController {
     
     @FXML
     private TextField enterISBN;
+    
+    @FXML
+    private TextField enterFormat;
+    
+    @FXML
+    private Label BookFormat;
 
     @FXML
     void goHome( ActionEvent event ) {
@@ -89,7 +95,8 @@ public class NewBookController {
     			 enterGenre.getText().length() == 0 ||
     			 enterHashtags.getText().length() == 0 ||
     			 enterDescription.getText().length() == 0 ||
-    			 enterISBN.getText().length() == 0 ) {
+    			 enterISBN.getText().length() == 0 ||
+    			 enterFormat.getText().length() == 0 ) {
     			System.out.println("Not everything is filled. Please fill all text areas.");
     		}
     		else {
@@ -123,6 +130,8 @@ public class NewBookController {
     			csvWriter.append(enterISBN.getText());
     			csvWriter.append(",");
     			csvWriter.append(enterImagePath.getText());
+    			csvWriter.append(",");
+    			csvWriter.append(enterFormat.getText());
     			csvWriter.close();	
     			//return Library search?
     			Library.books.clear();

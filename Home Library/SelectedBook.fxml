@@ -31,13 +31,23 @@
                   <Font size="12.0" />
                </font>
             </Label>
-            <Label fx:id="BookDescription" alignment="TOP_LEFT" layoutX="440.0" layoutY="165.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Description of the Book">
+            <Label fx:id="BookDescription" alignment="TOP_LEFT" layoutX="440.0" layoutY="215.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="406.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Description of the Book">
                <font>
                   <Font size="12.0" />
                </font>
             </Label>
             <Label fx:id="BookTitle" layoutX="440.0" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Title of the Book" />
             <Label fx:id="BookHashtags" layoutX="440.0" layoutY="140.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Hashtags of the Book">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="BookFormat" layoutX="440.0" layoutY="165.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Format of the Book">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="BookISBN" layoutX="440.0" layoutY="190.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="ISBN of the Book">
                <font>
                   <Font size="12.0" />
                </font>

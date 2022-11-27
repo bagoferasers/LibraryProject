@@ -31,9 +31,15 @@ public class SelectedBookController implements Initializable {
 
     @FXML
     private Label BookHashtags;
+    
+    @FXML
+    private Label BookISBN;
 
     @FXML
     private Label BookDescription;
+    
+    @FXML
+    private Label BookFormat;
 
     @FXML
     private Text testText;
@@ -62,6 +68,8 @@ public class SelectedBookController implements Initializable {
 		BookDescription.setText( Library.selected.getDescription( ) );
 		Image i = new Image(Library.selected.getPicture());
 		BookImage.setImage(i);
+		BookFormat.setText(Library.selected.getFormat());
+		BookISBN.setText(String.valueOf(Library.selected.getISBN()));
 	}
     
     public void deleteBook( ActionEvent event ) throws IOException {
