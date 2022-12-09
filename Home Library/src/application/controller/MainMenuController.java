@@ -144,13 +144,15 @@ public class MainMenuController implements Initializable {
     void goSelectBook( MouseEvent event ) {
     	try {
     		Book b = searchList.getSelectionModel( ).getSelectedItem( );
-    		Library.selected = b;
-    		URL selectBookURL = new File( "SelectedBook.fxml" ).toURI( ).toURL( );
-    		borderPane = FXMLLoader.load( selectBookURL );
-    		Scene scene = new Scene( borderPane );
-    		Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
-    		stage.setScene( scene );
-    		stage.show( );
+    		if( b != null ) {
+	    		Library.selected = b;
+	    		URL selectBookURL = new File( "SelectedBook.fxml" ).toURI( ).toURL( );
+	    		borderPane = FXMLLoader.load( selectBookURL );
+	    		Scene scene = new Scene( borderPane );
+	    		Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
+	    		stage.setScene( scene );
+	    		stage.show( );
+    		}
     	} catch ( Exception e ) {
     		e.printStackTrace( );
     	}
