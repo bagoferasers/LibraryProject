@@ -61,15 +61,24 @@ public class SelectedBookController implements Initializable {
 
     @Override
 	public void initialize( URL location, ResourceBundle resources ) {
-		BookTitle.setText( Library.selected.getName( ) );
-		BookGenre.setText( Library.selected.getGenre( ).toString( ) );
-		BookHashtags.setText( Library.selected.hashtagToString( ) );
-		BookAuthor.setText( Library.selected.getAuthor( ).toString( ) );
-		BookDescription.setText( Library.selected.getDescription( ) );
-		Image i = new Image(Library.selected.getPicture());
-		BookImage.setImage(i);
-		BookFormat.setText(Library.selected.getFormat());
-		BookISBN.setText(String.valueOf(Library.selected.getISBN()));
+    	if( Library.selected.getName( ) != null )
+    		BookTitle.setText( Library.selected.getName( ) );
+    	if( Library.selected.getGenre( ) != null )
+    		BookGenre.setText( Library.selected.getGenre( ).toString( ) );
+    	if( Library.selected.getHashtags( ) != null )
+    		BookHashtags.setText( Library.selected.hashtagToString( ) );
+    	if( Library.selected.getAuthor( ) != null )
+    		BookAuthor.setText( Library.selected.getAuthor( ).toString( ) );
+    	if( Library.selected.getDescription( ) != null )
+    		BookDescription.setText( Library.selected.getDescription( ) );
+    	if( !Library.selected.getPicture( ).isEmpty() ) {
+    		Image i = new Image(Library.selected.getPicture());
+			BookImage.setImage(i);
+    	}
+		if( Library.selected.getFormat( ) != null )
+			BookFormat.setText(Library.selected.getFormat());
+		if( Library.selected.getISBN( ) != 0 )
+			BookISBN.setText(String.valueOf(Library.selected.getISBN()));
 	}
     
     public void deleteBook( ActionEvent event ) throws IOException {

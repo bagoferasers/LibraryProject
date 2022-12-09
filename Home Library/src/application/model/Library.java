@@ -21,21 +21,22 @@ public class Library {
 			//while csv isn't null, read a new line into a Book object
 			while ( ( row = csvReader.readLine( ) ) != null ) {
 				String[] bookData = row.split(",");
-				b.setName( bookData[ 0 ] );
-				Author a = new Author();
-				a.setLastName( bookData[ 1 ] );
-				a.setFirstName( bookData[ 2 ] );
-				b.setAuthor(a);
-				b.setGenre( bookData[ 3 ] );
-				b.setHashtags( bookData[ 4 ] );
-				b.setDescription( bookData[ 5 ] );
-				b.setISBN( Integer.valueOf(bookData[ 6 ] ) );
-				b.setPicture( bookData[ 7 ] );
-				b.setFormat(bookData[8]);
-				//once book object is complete, add to library
-				Library.books.add(b);
-				//clear out local b object
-				b = new Book();
+				if( bookData.length > 7 ) {
+					b.setName( bookData[ 0 ] );
+					Author a = new Author( );
+					a.setLastName( bookData[ 1 ] );
+					a.setFirstName( bookData[ 2 ] );
+					b.setAuthor( a );
+					b.setGenre( bookData[ 3 ] );
+					b.setHashtags( bookData[ 4 ] );
+					b.setDescription( bookData[ 5 ] );
+					b.setISBN( Integer.valueOf(bookData[ 6 ] ) );
+					b.setPicture( bookData[ 7 ] );
+					b.setFormat(bookData[8]);
+					//once book object is complete, add to library
+					Library.books.add(b);
+					b = new Book();
+				}
 			}
 			csvReader.close();
 		} catch (Exception e) {
