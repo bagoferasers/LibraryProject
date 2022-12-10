@@ -110,6 +110,7 @@ public class SelectedBookController implements Initializable {
 		csvWriter.close();
 		csvReader.close();
 		Library.books.remove(Library.selected);
+		Library.searchedBooks.remove(Library.selected);
 		Library.loadLibrary();
 		//return to home
 		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
