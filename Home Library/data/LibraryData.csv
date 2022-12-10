@@ -1,5 +1,3 @@
 NAME,LAST,FIRST,GENRE,HASHTAGS,DESCRIPTION,ISBN,IMAGE,Format
-a,a,,a,a,a,1,me.jpg,a
-b,b,,b,b,b,2,me.jpg,b
-c,c,,c,c,c,3,me.jpg,c
-d,d,,d,d,d,4,me.jpg,d
+This Book ,Colby,Bailey,Fantasy,This/Book/Has/Hashybois,This is the description.,12345,me.jpg,Kindle
+The Hobbit,Myself,Youssef,Fantasy,Adventure/Hobbit feet/gross goblins,"no description		",1029384756,TheHobbit_COVER.PNG,Paperback

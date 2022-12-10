@@ -61,7 +61,7 @@ public class MainMenuController implements Initializable {
     				//search books for keyword
     				for(int i = 0; i < Library.books.size(); i++ ) {
     					//if book at position i contains keyword, add to searchedBooks
-    					if(Library.books.get(i).getName().toLowerCase().equals(searchField.getText().toLowerCase()) 
+    					if(Library.books.get(i).getName().toLowerCase().contains(searchField.getText().toLowerCase()) 
     					   && !Library.searchedBooks.contains(Library.books.get(i))) {
     						Library.searchedBooks.add(Library.books.get(i));
     					}
@@ -99,8 +99,8 @@ public class MainMenuController implements Initializable {
     				//search books for keyword
     				for(int i = 0; i < Library.books.size(); i++ ) {
     					//if book at position i contains keyword, add to searchedBooks
-    					if(Library.books.get(i).getAuthor().getFirstName().toLowerCase().equals(searchField.getText().toLowerCase())
-    					   || Library.books.get(i).getAuthor().getLastName().toLowerCase().equals(searchField.getText().toLowerCase())
+    					if(Library.books.get(i).getAuthor().getFirstName().toLowerCase().contains(searchField.getText().toLowerCase())
+    					   || Library.books.get(i).getAuthor().getLastName().toLowerCase().contains(searchField.getText().toLowerCase())
     					   && !Library.searchedBooks.contains(Library.books.get(i))) {
     						Library.searchedBooks.add(Library.books.get(i));
     					}
@@ -117,7 +117,7 @@ public class MainMenuController implements Initializable {
     				//search books for keyword
     				for(int i = 0; i < Library.books.size(); i++ ) {
     					//if book at position i contains keyword, add to searchedBooks
-    					if(Library.books.get(i).getGenre().toLowerCase().equals(searchField.getText().toLowerCase())
+    					if(Library.books.get(i).getGenre().toLowerCase().contains(searchField.getText().toLowerCase())
     					   && !Library.searchedBooks.contains(Library.books.get(i))) {
     						Library.searchedBooks.add(Library.books.get(i));
     					}
@@ -144,13 +144,15 @@ public class MainMenuController implements Initializable {
     void goSelectBook( MouseEvent event ) {
     	try {
     		Book b = searchList.getSelectionModel( ).getSelectedItem( );
-    		Library.selected = b;
-    		URL selectBookURL = new File( "SelectedBook.fxml" ).toURI( ).toURL( );
-    		borderPane = FXMLLoader.load( selectBookURL );
-    		Scene scene = new Scene( borderPane );
-    		Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
-    		stage.setScene( scene );
-    		stage.show( );
+    		if( b != null ) {
+	    		Library.selected = b;
+	    		URL selectBookURL = new File( "SelectedBook.fxml" ).toURI( ).toURL( );
+	    		borderPane = FXMLLoader.load( selectBookURL );
+	    		Scene scene = new Scene( borderPane );
+	    		Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
+	    		stage.setScene( scene );
+	    		stage.show( );
+    		}
     	} catch ( Exception e ) {
     		e.printStackTrace( );
     	}
