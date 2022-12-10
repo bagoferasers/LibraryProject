@@ -20,6 +20,7 @@ public class Library {
 			String row = csvReader.readLine( );
 			//while csv isn't null, read a new line into a Book object
 			while ( ( row = csvReader.readLine( ) ) != null ) {
+				System.out.println("entering while loop in loadlibrary"); /////////////////////////////////////////
 				String[] bookData = row.split(",");
 				if( bookData.length > 7 ) {
 					b.setName( bookData[ 0 ] );

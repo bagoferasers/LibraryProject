@@ -96,6 +96,7 @@ public class SelectedBookController implements Initializable {
     	csvWriter.append(row);
 		//find row that book is on and continue
     	while ( ( row = csvReader.readLine()) != null ) {
+    		System.out.println("Entering while loop."); ///////////////////////////////////////////
 			String [] bookData = row.split(",");
 			if(Integer.valueOf(bookData[ 6 ]) == Library.selected.getISBN()) {
 				continue;
