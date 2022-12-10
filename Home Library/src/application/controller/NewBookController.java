@@ -126,6 +126,7 @@ public class NewBookController {
     			csvWriter.append(enterHashtags.getText());
     			csvWriter.append(",");
     			csvWriter.append(enterDescription.getText());
+    			System.out.println(enterDescription.getText());
     			csvWriter.append(",");
     			csvWriter.append(enterISBN.getText());
     			csvWriter.append(",");
