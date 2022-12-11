@@ -30,7 +30,7 @@ public class Library {
 					b.setGenre( bookData[ 3 ] );
 					b.setHashtags( bookData[ 4 ] );
 					b.setDescription( bookData[ 5 ] );
-					b.setISBN( Long.valueOf(bookData[ 6 ] ) );
+					b.setISBN( Integer.valueOf(bookData[ 6 ] ) );
 					b.setPicture( bookData[ 7 ] );
 					b.setFormat(bookData[8]);
 					//once book object is complete, add to library

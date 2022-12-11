@@ -126,7 +126,7 @@ public class NewBookController {
     			csvWriter.append(enterHashtags.getText());
     			csvWriter.append(",");
     			csvWriter.append(enterDescription.getText());
-    			System.out.println(enterDescription.getText());
+    			//System.out.println(enterDescription.getText());
     			csvWriter.append(",");
     			csvWriter.append(enterISBN.getText());
     			csvWriter.append(",");
@@ -134,7 +134,6 @@ public class NewBookController {
     			csvWriter.append(",");
     			csvWriter.append(enterFormat.getText());
     			csvWriter.close();	
-    			//return Library search?
     			Library.books.clear();
     			Library.loadLibrary();
     		}

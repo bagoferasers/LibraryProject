@@ -7,11 +7,11 @@ public class Book {
 	private String hashtags;
 	private Author author;
 	private String genre;
-	private long ISBN;
+	private int ISBN;
 	private String format;
 	
 	public Book( String BookImage, String name, String description,
-			String hashtags, Author author, String genre, long ISBN, String format) {
+			String hashtags, Author author, String genre, int ISBN, String format) {
 		this.setPicture( BookImage );
 		this.setName( name );
 		this.setDescription( description );
@@ -41,11 +41,11 @@ public class Book {
 		return format;
 	}
 
-	public void setISBN(long i) {
+	public void setISBN(int i) {
 		this.ISBN = i;
 	}
 	
-	public long getISBN( ) {
+	public int getISBN( ) {
 		return ISBN;
 	}
 	
