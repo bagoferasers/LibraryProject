@@ -69,8 +69,10 @@ public class SelectedBookController implements Initializable {
     		BookHashtags.setText( Library.selected.hashtagToString( ) );
     	if( Library.selected.getAuthor( ) != null )
     		BookAuthor.setText( Library.selected.getAuthor( ).toString( ) );
-    	if( Library.selected.getDescription( ) != null )
-    		BookDescription.setText( Library.selected.getDescription( ) );
+    	if( Library.selected.getDescription( ) != null ) {
+    		String[ ] s = Library.selected.getDescription().split("\"");
+    		BookDescription.setText( s[ 1 ] );
+    	}
     	if( !Library.selected.getPicture( ).isEmpty() ) {
     		Image i = new Image(Library.selected.getPicture());
 			BookImage.setImage(i);
