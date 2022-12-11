@@ -101,10 +101,10 @@ public class NewBookController {
     		}
     		else {
     			FileWriter csvWriter = new FileWriter( "data/LibraryData.csv", true );
-    			csvWriter.append("\n");
-    			csvWriter.append(enterTitle.getText());
+    			csvWriter.append( "\n" );
+    			csvWriter.append( enterTitle.getText( ) );
     			csvWriter.append(",");
-    			String fullName [ ] = enterAuthor.getText().split(" ", 2);
+    			String fullName [ ] = enterAuthor.getText( ).split(" ", 2);
     			if ( fullName.length != 2 ) {
     				String firstName = fullName[ 0 ];
     				csvWriter.append(firstName);
@@ -125,8 +125,12 @@ public class NewBookController {
     			csvWriter.append(",");
     			csvWriter.append(enterHashtags.getText());
     			csvWriter.append(",");
-    			csvWriter.append(enterDescription.getText());
+    			/////////////////////////////////////////////////////////////////////////////////////
+    			//String s = enterDescription.getText();
+    			String s = "\"" + enterDescription.getText() + "\"";
+    			csvWriter.append(s);
     			//System.out.println(enterDescription.getText());
+    			////////////////////////////////////////////////////////////////////////////////////////
     			csvWriter.append(",");
     			csvWriter.append(enterISBN.getText());
     			csvWriter.append(",");

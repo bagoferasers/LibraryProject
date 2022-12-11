@@ -20,7 +20,7 @@ public class Library {
 			String row = csvReader.readLine( );
 			//while csv isn't null, read a new line into a Book object
 			while ( ( row = csvReader.readLine( ) ) != null ) {
-				String[] bookData = row.split(",");
+				String[] bookData = row.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
 				if( bookData.length > 7 ) {
 					b.setName( bookData[ 0 ] );
 					Author a = new Author( );
@@ -30,7 +30,7 @@ public class Library {
 					b.setGenre( bookData[ 3 ] );
 					b.setHashtags( bookData[ 4 ] );
 					b.setDescription( bookData[ 5 ] );
-					b.setISBN( Integer.valueOf(bookData[ 6 ] ) );
+					b.setISBN( Long.valueOf(bookData[ 6 ] ) );
 					b.setPicture( bookData[ 7 ] );
 					b.setFormat(bookData[8]);
 					//once book object is complete, add to library

@@ -96,8 +96,8 @@ public class SelectedBookController implements Initializable {
     	csvWriter.append(row);
 		//find row that book is on and continue
     	while ( ( row = csvReader.readLine( ) ) != "" && row != null ) {
-			String [ ] bookData = row.split( "," );
-			if( Integer.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
+			String [ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
+			if( Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
 				continue;
 			}
 			//if not book, append to temp file
@@ -107,7 +107,7 @@ public class SelectedBookController implements Initializable {
     	//remove old LibraryData.csv and rename temporary file to LibraryData.csv
 		csvWriter.close();
 		csvReader.close();
-    	Boolean b = libData.delete();
+    	libData.delete();
     	tmp.renameTo(libData);
 		Library.books.remove(Library.selected);
 		Library.searchedBooks.remove(Library.selected);
