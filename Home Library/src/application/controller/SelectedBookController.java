@@ -6,8 +6,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import application.model.Book;
 import application.model.Library;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -58,6 +61,9 @@ public class SelectedBookController implements Initializable {
     
     @FXML
     private Button goHome;
+    
+    @FXML
+    private Button editBook;
 
     @Override
 	public void initialize( URL location, ResourceBundle resources ) {
@@ -82,6 +88,22 @@ public class SelectedBookController implements Initializable {
 		if( Library.selected.getISBN( ) != 0 )
 			BookISBN.setText(String.valueOf(Library.selected.getISBN()));
 	}
+    
+    public void editBook( ActionEvent event ) {
+    	//go to new book fxml
+	    URL selectBookURL;
+		try {
+			selectBookURL = new File( "NewBook.fxml" ).toURI( ).toURL( );
+			Parent borderPane = FXMLLoader.load( selectBookURL );
+			Scene scene = new Scene( borderPane );
+			Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
+			stage.setScene( scene );
+			stage.show( );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
     
     public void deleteBook( ActionEvent event ) throws IOException {
     	//create temporary file to write to

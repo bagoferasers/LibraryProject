@@ -1,14 +1,14 @@
 package application.model;
 
 public class Book {
-    private String BookImage;
+    public String BookImage;
 	private String name;
-	private String description;
-	private String hashtags;
-	private Author author;
-	private String genre;
-	private long ISBN;
-	private String format;
+	public String description;
+	public String hashtags;
+	public Author author;
+	public String genre;
+	public long ISBN;
+	public String format;
 	
 	public Book( String BookImage, String name, String description,
 			String hashtags, Author author, String genre, long ISBN, String format) {
