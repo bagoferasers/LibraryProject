@@ -157,10 +157,13 @@ public class NewBookController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		if(Library.selected != null ) {
-			System.out.println("not null");
 			enterTitle.setText(Library.selected.getName());
 			enterAuthor.setText(Library.selected.author.getFirstName() + " " + Library.selected.author.getLastName() );
 			enterGenre.setText(Library.selected.getGenre());
+			enterHashtags.setText(Library.selected.hashtags);
+			enterDescription.setText(Library.selected.description);
+			enterISBN.setText(String.valueOf(Library.selected.getISBN()));
+			enterFormat.setText(Library.selected.getFormat());
 		}
 	}
 }
