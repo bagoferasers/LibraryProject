@@ -49,12 +49,20 @@ public class Book {
 		return ISBN;
 	}
 	
+	//public String getPicture( ) {
+	//	return BookImage;
+	//}
+	
+	//public void setPicture( String BookImage ) {
+	//	this.BookImage = "application/view/" + BookImage;
+	//}
+	
 	public String getPicture( ) {
-		return BookImage;
+		return "application/view/" + BookImage;
 	}
 	
 	public void setPicture( String BookImage ) {
-		this.BookImage = "application/view/" + BookImage;
+		this.BookImage = BookImage;
 	}
 	
 	public String getName( ) {

@@ -24,8 +24,8 @@ public class Library {
 				if( bookData.length > 7 ) {
 					b.setName( bookData[ 0 ] );
 					Author a = new Author( );
-					a.setLastName( bookData[ 1 ] );
-					a.setFirstName( bookData[ 2 ] );
+					a.setFirstName( bookData[ 1 ] );
+					a.setLastName( bookData[ 2 ] );
 					b.setAuthor( a );
 					b.setGenre( bookData[ 3 ] );
 					b.setHashtags( bookData[ 4 ] );
