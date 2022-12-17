@@ -95,7 +95,7 @@ public class NewBookController implements Initializable {
     		enterImagePath.setPromptText("Place image in application.view and enter Image path.");
     		enterISBN.setPromptText("Enter book ISBN.");
     		enterFormat.setPromptText("Enter book format.");
-    		
+    		Library.selected = null;
     		Library.loadLibrary();
     		
     		
