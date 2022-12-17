@@ -1,14 +1,14 @@
 package application.model;
 
 public class Book {
-    private String BookImage;
+    public String BookImage;
 	private String name;
-	private String description;
-	private String hashtags;
-	private Author author;
-	private String genre;
-	private long ISBN;
-	private String format;
+	public String description;
+	public String hashtags;
+	public Author author;
+	public String genre;
+	public long ISBN;
+	public String format;
 	
 	public Book( String BookImage, String name, String description,
 			String hashtags, Author author, String genre, long ISBN, String format) {
@@ -49,12 +49,20 @@ public class Book {
 		return ISBN;
 	}
 	
+	//public String getPicture( ) {
+	//	return BookImage;
+	//}
+	
+	//public void setPicture( String BookImage ) {
+	//	this.BookImage = "application/view/" + BookImage;
+	//}
+	
 	public String getPicture( ) {
-		return BookImage;
+		return "application/view/" + BookImage;
 	}
 	
 	public void setPicture( String BookImage ) {
-		this.BookImage = "application/view/" + BookImage;
+		this.BookImage = BookImage;
 	}
 	
 	public String getName( ) {

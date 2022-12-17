@@ -6,8 +6,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import application.model.Book;
 import application.model.Library;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -58,6 +61,9 @@ public class SelectedBookController implements Initializable {
     
     @FXML
     private Button goHome;
+    
+    @FXML
+    public static Button editBook;
 
     @Override
 	public void initialize( URL location, ResourceBundle resources ) {
@@ -70,8 +76,10 @@ public class SelectedBookController implements Initializable {
     	if( Library.selected.getAuthor( ) != null )
     		BookAuthor.setText( Library.selected.getAuthor( ).toString( ) );
     	if( Library.selected.getDescription( ) != null ) {
-    		String[ ] s = Library.selected.getDescription().split("\"");
-    		BookDescription.setText( s[ 1 ] );
+    		//String[ ] s = Library.selected.getDescription().split("\"");
+    		//System.out.println(s[ 0 ]);
+    		//BookDescription.setText( s[ 1 ] );
+    		BookDescription.setText( Library.selected.getDescription() );
     	}
     	if( !Library.selected.getPicture( ).isEmpty() ) {
     		Image i = new Image(Library.selected.getPicture());
@@ -82,6 +90,22 @@ public class SelectedBookController implements Initializable {
 		if( Library.selected.getISBN( ) != 0 )
 			BookISBN.setText(String.valueOf(Library.selected.getISBN()));
 	}
+    
+    public void editBook( ActionEvent event ) {
+    	//go to new book fxml
+	    URL selectBookURL;
+		try {
+			selectBookURL = new File( "NewBook.fxml" ).toURI( ).toURL( );
+			Parent borderPane = FXMLLoader.load( selectBookURL );
+			Scene scene = new Scene( borderPane );
+			Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
+			stage.setScene( scene );
+			stage.show( );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
     
     public void deleteBook( ActionEvent event ) throws IOException {
     	//create temporary file to write to
@@ -98,8 +122,8 @@ public class SelectedBookController implements Initializable {
     	csvWriter.append(row);
 		//find row that book is on and continue
     	while ( ( row = csvReader.readLine( ) ) != "" && row != null ) {
-			String [ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
-			if( Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
+			String[ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
+			if( bookData.length < 7 || Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
 				continue;
 			}
 			//if not book, append to temp file
@@ -113,6 +137,7 @@ public class SelectedBookController implements Initializable {
     	tmp.renameTo(libData);
 		Library.books.remove(Library.selected);
 		Library.searchedBooks.remove(Library.selected);
+		Library.selected = null;
 		Library.loadLibrary();
 		//return to home
 		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
@@ -128,6 +153,7 @@ public class SelectedBookController implements Initializable {
     
     @FXML
     void goHome( ActionEvent event ) throws IOException {
+    	Library.selected = null;
 		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
 		Parent root = FXMLLoader.load( addBookURL );
 		Scene scene = new Scene( root );
