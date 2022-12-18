@@ -62,6 +62,7 @@ public class LoanBookController {
 		csvReader.close();
     	libData.delete();
     	tmp.renameTo(libData);
+    	Library.selected = null;
 		Library.loadLibrary();
 		//return to home
 		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
