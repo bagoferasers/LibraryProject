@@ -1,2 +1,1 @@
-# Heading 1
-Bailey Library Project
+# Bailey Library Project
