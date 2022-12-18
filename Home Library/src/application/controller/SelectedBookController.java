@@ -63,7 +63,27 @@ public class SelectedBookController implements Initializable {
     private Button goHome;
     
     @FXML
+    private Button loanBook;
+
+    @FXML
     public static Button editBook;
+    
+    public void loan( ActionEvent event ) {
+	    URL loanBookURL;
+		try {
+			loanBookURL = new File( "LoanBook.fxml" ).toURI( ).toURL( );
+			Parent borderPane = FXMLLoader.load( loanBookURL );
+			Scene scene = new Scene( borderPane );
+			Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
+			stage.setScene( scene );
+			stage.show( );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+
 
     @Override
 	public void initialize( URL location, ResourceBundle resources ) {

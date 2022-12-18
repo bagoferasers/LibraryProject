@@ -155,7 +155,7 @@ public class NewBookController implements Initializable {
     			//find row that book is on and continue
     	    	while ( ( row = csvReader.readLine( ) ) != "" && row != null ) {
     				String[ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
-    				if( Library.selected != null && bookData != null && ( bookData.length < 7 || Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) ) {
+    				if( Library.selected != null && bookData != null && ( bookData.length < 8 || Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) ) {
     					continue;
     				}
     				//if not book, append to temp file
@@ -216,7 +216,9 @@ public class NewBookController implements Initializable {
     			csvWriter.append(enterImagePath.getText());
     			csvWriter.append(",");
     			csvWriter.append(enterFormat.getText());
-    			csvWriter.close();	
+    			csvWriter.append(",");
+    			csvWriter.append("FALSE");
+    			csvWriter.close();
     			Library.books.clear();
     			Library.loadLibrary();
     		}
@@ -227,13 +229,13 @@ public class NewBookController implements Initializable {
     		if( fullName != null && fullName.length > 1 ) {
     			a = new Author(fullName[0],fullName[1]);
     			Book b = new Book(enterImagePath.getText(),enterTitle.getText(),enterDescription.getText(),enterHashtags.getText(),a,
-    				enterGenre.getText(),Long.valueOf(enterISBN.getText()),enterFormat.getText());
+    				enterGenre.getText(),Long.valueOf(enterISBN.getText()),enterFormat.getText(), false);
     			Library.searchedBooks.add(b);
     		}
     		else if( fullName != null ) {
     			a = new Author(fullName[0],"");
     			Book b = new Book(enterImagePath.getText(),enterTitle.getText(),enterDescription.getText(),enterHashtags.getText(),a,
-    				enterGenre.getText(),Long.valueOf(enterISBN.getText()),enterFormat.getText());
+    				enterGenre.getText(),Long.valueOf(enterISBN.getText()),enterFormat.getText(), false);
     			Library.searchedBooks.add(b);
     		}
     		
@@ -257,7 +259,7 @@ public class NewBookController implements Initializable {
 
     		
     		
-    		//else add book then continue to main
+    		//else continue to main
     		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
 			Parent root = FXMLLoader.load( addBookURL );
 			Scene scene = new Scene( root );
@@ -276,8 +278,6 @@ public class NewBookController implements Initializable {
 			enterAuthor.setText(Library.selected.author.getFirstName() + " " + Library.selected.author.getLastName() );
 			enterGenre.setText(Library.selected.getGenre());
 			enterHashtags.setText(Library.selected.hashtags);
-			//enterDescription.setText(Library.selected.description.substring( 1, Library.selected.description.length( ) - 1 ) );
-			//enterDescription.setText(Library.selected.description.substring( Library.selected.description.length( ) ) );
 			enterDescription.setText(Library.selected.getDescription());
 			enterISBN.setText(String.valueOf(Library.selected.getISBN( ) ) );
 			enterFormat.setText(Library.selected.getFormat());

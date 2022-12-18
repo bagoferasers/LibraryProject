@@ -33,6 +33,8 @@ public class Library {
 					b.setISBN( Long.valueOf(bookData[ 6 ] ) );
 					b.setPicture( bookData[ 7 ] );
 					b.setFormat(bookData[8]);
+					if(bookData[9].contains("TRUE"))
+						b.setLoaned(true);
 					//once book object is complete, add to library
 					Library.books.add(b);
 					b = new Book();
