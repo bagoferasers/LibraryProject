@@ -95,7 +95,7 @@ public class SelectedBookController implements Initializable {
 			if( Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
 				bookData[9] = "FALSE";
 				String editedRow = bookData[0] + "," + bookData[1] + "," + bookData[2] + "," + bookData[3] + "," + bookData[4] +
-						"," + bookData[5] + "," + bookData[6] + "," + bookData[7] + "," + bookData[8] + "," + bookData[9];
+						"," + bookData[5] + "," + bookData[6] + "," + bookData[7] + "," + bookData[8] + "," + bookData[9] +"," + "nodate" + "," + "noname";
 				csvWriter.append("\n");
 				csvWriter.append(editedRow);
 			}

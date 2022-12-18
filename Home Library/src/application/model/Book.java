@@ -10,9 +10,12 @@ public class Book {
 	public long ISBN;
 	public String format;
 	public Boolean loaned;
+	public String dateLoaned;
+	public String nameLoaned;
 	
 	public Book( String BookImage, String name, String description,
-			String hashtags, Author author, String genre, long ISBN, String format, Boolean b) {
+			String hashtags, Author author, String genre, long ISBN, 
+			String format, Boolean b, String dateLoaned, String nameLoaned) {
 		this.setPicture( BookImage );
 		this.setName( name );
 		this.setDescription( description );
@@ -22,6 +25,8 @@ public class Book {
 		this.setISBN( ISBN );
 		this.setFormat(format);
 		this.setLoaned(b);
+		this.setDateLoaned(dateLoaned);
+		this.setNameLoaned(nameLoaned);
 	}
 	
 	public Book() {
@@ -34,6 +39,24 @@ public class Book {
 		this.setISBN(0);
 		this.setFormat("");
 		this.setLoaned(false);
+		this.setDateLoaned("nodate");
+		this.setNameLoaned("noname");
+	}
+	
+	public String getNameLoaned() {
+		return nameLoaned;
+	}
+	
+	public void setNameLoaned(String nameLoaned) {
+		this.nameLoaned = nameLoaned;
+	}
+	
+	public String getDateLoaned() {
+		return dateLoaned;
+	}
+	
+	public void setDateLoaned(String dateLoaned) {
+		this.dateLoaned = dateLoaned;
 	}
 	
 	public Boolean getLoaned() {

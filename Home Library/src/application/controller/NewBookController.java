@@ -218,6 +218,10 @@ public class NewBookController implements Initializable {
     			csvWriter.append(enterFormat.getText());
     			csvWriter.append(",");
     			csvWriter.append("FALSE");
+    			csvWriter.append(",");
+    			csvWriter.append("nodate");
+    			csvWriter.append(",");
+    			csvWriter.append("noname");
     			csvWriter.close();
     			Library.books.clear();
     			Library.loadLibrary();
@@ -229,13 +233,13 @@ public class NewBookController implements Initializable {
     		if( fullName != null && fullName.length > 1 ) {
     			a = new Author(fullName[0],fullName[1]);
     			Book b = new Book(enterImagePath.getText(),enterTitle.getText(),enterDescription.getText(),enterHashtags.getText(),a,
-    				enterGenre.getText(),Long.valueOf(enterISBN.getText()),enterFormat.getText(), false);
+    				enterGenre.getText(),Long.valueOf(enterISBN.getText()),enterFormat.getText(), false, "nodate", "noname");
     			Library.searchedBooks.add(b);
     		}
     		else if( fullName != null ) {
     			a = new Author(fullName[0],"");
     			Book b = new Book(enterImagePath.getText(),enterTitle.getText(),enterDescription.getText(),enterHashtags.getText(),a,
-    				enterGenre.getText(),Long.valueOf(enterISBN.getText()),enterFormat.getText(), false);
+    				enterGenre.getText(),Long.valueOf(enterISBN.getText()),enterFormat.getText(), false, "nodate", "noname");
     			Library.searchedBooks.add(b);
     		}
     		

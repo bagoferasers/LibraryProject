@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
@@ -25,6 +26,12 @@ public class LoanBookController {
 	
 	@FXML
 	private Button goHome;
+	
+	@FXML
+	public TextField dateLoaned;
+	
+	@FXML
+	private TextField nameLoaned;
 	
 	public void goLoan(ActionEvent event) throws IOException {
 		Library.selected.setLoaned(true);
@@ -48,8 +55,9 @@ public class LoanBookController {
 				bookData[9] = "TRUE";
 				String editedRow = bookData[0] + "," + bookData[1] + "," + bookData[2] + "," + bookData[3] + "," + bookData[4] +
 						"," + bookData[5] + "," + bookData[6] + "," + bookData[7] + "," + bookData[8] + "," + bookData[9];
+				String s = editedRow + "," + dateLoaned.getText() + "," + nameLoaned.getText();
 				csvWriter.append("\n");
-				csvWriter.append(editedRow);
+				csvWriter.append(s);
 			}
 			else {
 			//if not book, append to temp file

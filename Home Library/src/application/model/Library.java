@@ -21,7 +21,7 @@ public class Library {
 			//while csv isn't null, read a new line into a Book object
 			while ( ( row = csvReader.readLine( ) ) != null ) {
 				String[] bookData = row.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
-				if( bookData.length > 7 ) {
+				if( bookData.length > 10 ) {
 					b.setName( bookData[ 0 ] );
 					Author a = new Author( );
 					a.setFirstName( bookData[ 1 ] );
@@ -35,6 +35,28 @@ public class Library {
 					b.setFormat(bookData[8]);
 					if(bookData[9].contains("TRUE"))
 						b.setLoaned(true);
+					b.setDateLoaned(bookData[10]);
+					b.setNameLoaned(bookData[11]);
+					//once book object is complete, add to library
+					Library.books.add(b);
+					b = new Book();
+				}
+				else if( bookData.length > 9 ) {
+					b.setName( bookData[ 0 ] );
+					Author a = new Author( );
+					a.setFirstName( bookData[ 1 ] );
+					a.setLastName( bookData[ 2 ] );
+					b.setAuthor( a );
+					b.setGenre( bookData[ 3 ] );
+					b.setHashtags( bookData[ 4 ] );
+					b.setDescription( bookData[ 5 ] );
+					b.setISBN( Long.valueOf(bookData[ 6 ] ) );
+					b.setPicture( bookData[ 7 ] );
+					b.setFormat(bookData[8]);
+					if(bookData[9].contains("TRUE"))
+						b.setLoaned(true);
+					b.setDateLoaned("nodate");
+					b.setNameLoaned("noname");
 					//once book object is complete, add to library
 					Library.books.add(b);
 					b = new Book();
