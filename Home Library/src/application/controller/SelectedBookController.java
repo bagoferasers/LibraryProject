@@ -143,7 +143,7 @@ public class SelectedBookController implements Initializable {
 		//find row that book is on and continue
     	while ( ( row = csvReader.readLine( ) ) != "" && row != null ) {
 			String[ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
-			if( bookData.length < 7 || Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
+			if( bookData.length < 8 || Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
 				continue;
 			}
 			//if not book, append to temp file
