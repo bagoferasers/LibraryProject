@@ -19,6 +19,11 @@
                         <InnerShadow />
                      </effect>
                   </ImageView>
+                  <Label fx:id="loanedDisplay" layoutX="100.0" layoutY="250.0" textFill="RED">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <Label fx:id="BookAuthor" layoutX="440.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="516.0" style="-fx-background-color: #ffffff;" text="Author of the Book">

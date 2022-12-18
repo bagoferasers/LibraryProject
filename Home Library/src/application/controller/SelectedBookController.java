@@ -30,6 +30,9 @@ import javafx.stage.Stage;
 public class SelectedBookController implements Initializable {
 
     @FXML
+    private Label loanedDisplay;
+	
+	@FXML
     private Label BookGenre;
 
     @FXML
@@ -162,6 +165,8 @@ public class SelectedBookController implements Initializable {
 			BookFormat.setText(Library.selected.getFormat());
 		if( Library.selected.getISBN( ) != 0 )
 			BookISBN.setText(String.valueOf(Library.selected.getISBN()));
+		if( Library.selected.getLoaned()== true)
+			loanedDisplay.setText("LOANED");
 	}
     
     public void editBook( ActionEvent event ) {
@@ -227,6 +232,7 @@ public class SelectedBookController implements Initializable {
     @FXML
     void goHome( ActionEvent event ) throws IOException {
     	Library.selected = null;
+    	loanedDisplay.setText("");
 		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
 		Parent root = FXMLLoader.load( addBookURL );
 		Scene scene = new Scene( root );
