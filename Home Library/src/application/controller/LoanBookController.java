@@ -35,6 +35,8 @@ public class LoanBookController {
 	
 	public void goLoan(ActionEvent event) throws IOException {
 		Library.selected.setLoaned(true);
+		Library.selected.setDateLoaned(dateLoaned.getText());
+		Library.selected.setNameLoaned(nameLoaned.getText());
 		//find it in csv and change bookData[9] to TRUE
 		//create temporary file to write to
     	File tmp = new File("data/tmp.csv");

@@ -60,6 +60,9 @@ public class SelectedBookController implements Initializable {
     private Label BookAuthor;
     
     @FXML
+    private Label loanedBy;
+    
+    @FXML
     private BorderPane SelectedPane;
     
     @FXML
@@ -165,8 +168,9 @@ public class SelectedBookController implements Initializable {
 			BookFormat.setText(Library.selected.getFormat());
 		if( Library.selected.getISBN( ) != 0 )
 			BookISBN.setText(String.valueOf(Library.selected.getISBN()));
-		if( Library.selected.getLoaned()== true)
+		if( Library.selected.getLoaned()== true) {
 			loanedDisplay.setText("LOANED");
+			loanedBy.setText("Loaned by " + Library.selected.getNameLoaned() + " on " + Library.selected.getDateLoaned());		}
 	}
     
     public void editBook( ActionEvent event ) {
