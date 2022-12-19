@@ -75,17 +75,6 @@
                      </font></RadioButton>
                </children>
             </AnchorPane>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Bailey Library" textAlignment="CENTER" textFill="#003300">
-               <font>
-                  <Font size="65.0" />
-               </font>
-               <effect>
-                  <Shadow color="#003300" />
-               </effect>
-               <padding>
-                  <Insets left="310.0" right="310.0" />
-               </padding>
-            </Label>
             <Label alignment="CENTER" contentDisplay="CENTER" text="Bailey Library" textAlignment="CENTER">
                <font>
                   <Font size="65.0" />
@@ -93,6 +82,9 @@
                <padding>
                   <Insets left="310.0" right="310.0" />
                </padding>
+               <effect>
+                  <Glow />
+               </effect>
             </Label>
             <Button fx:id="addBook" layoutX="12.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAddBook" prefHeight="30.0" prefWidth="100.0" stylesheets="@src/application/application.css" text="Add Book">
                <font>
