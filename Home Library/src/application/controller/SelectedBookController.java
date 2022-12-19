@@ -6,11 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import application.model.Book;
 import application.model.Library;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,3 +1,3 @@
 #!/bin/bash
-chmod 777 Library.jar
+chmod u+x Library.jar
 java -jar Library.jar
