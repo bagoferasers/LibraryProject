@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import application.model.Library;
 import javafx.event.ActionEvent;
@@ -15,8 +16,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -87,53 +91,59 @@ public class SelectedBookController implements Initializable {
      * @throws IOException if stream to file cannot be written to or closed.
      */
     public void returnBook( ActionEvent event ) throws IOException {
-    	Library.selected.setLoaned( false );
-		//find Book object in csv and change loaned to TRUE
-		//create temporary file to write to
-    	File tmp = new File( "data/tmp.csv" );
-    	tmp.getParentFile( ).mkdirs( ); 
-    	tmp.createNewFile( );
-    	//open LibraryData.csv
-    	File libData = new File( "data/LibraryData.csv" );
-    	try (
-    	BufferedReader csvReader = new BufferedReader( new FileReader( libData ) ) ) {
-    	BufferedWriter csvWriter = new BufferedWriter( new FileWriter( tmp ) );
-    	//remove header from libData and add to tmp
-    	String row = csvReader.readLine( );
-    	csvWriter.append( row );
-		//find row that book is on and mark it as loaned and append to tmp
-    	while ( ( row = csvReader.readLine( ) ) != "" && row != null ) {
-			String[ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
-			if( Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
-				bookData[ 9 ] = "FALSE";
-				String editedRow = bookData[ 0 ] + "," + bookData[ 1 ] + "," + bookData[ 2 ] + "," + bookData[ 3 ] + "," + bookData[ 4 ] +
-						"," + bookData[ 5 ] + "," + bookData[ 6 ] + "," + bookData[ 7 ] + "," + bookData[ 8 ] + "," + bookData[ 9 ] + "," + "nodate" + "," + "noname";
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Confirmation Dialog");
+    	alert.setContentText("Are you sure?");
+    	Optional <ButtonType> action = alert.showAndWait();
+    	if( action.get() == ButtonType.OK) {
+	    	Library.selected.setLoaned( false );
+			//find Book object in csv and change loaned to TRUE
+			//create temporary file to write to
+	    	File tmp = new File( "data/tmp.csv" );
+	    	tmp.getParentFile( ).mkdirs( ); 
+	    	tmp.createNewFile( );
+	    	//open LibraryData.csv
+	    	File libData = new File( "data/LibraryData.csv" );
+	    	try (
+	    	BufferedReader csvReader = new BufferedReader( new FileReader( libData ) ) ) {
+	    	BufferedWriter csvWriter = new BufferedWriter( new FileWriter( tmp ) );
+	    	//remove header from libData and add to tmp
+	    	String row = csvReader.readLine( );
+	    	csvWriter.append( row );
+			//find row that book is on and mark it as loaned and append to tmp
+	    	while ( ( row = csvReader.readLine( ) ) != "" && row != null ) {
+				String[ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
+				if( Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
+					bookData[ 9 ] = "FALSE";
+					String editedRow = bookData[ 0 ] + "," + bookData[ 1 ] + "," + bookData[ 2 ] + "," + bookData[ 3 ] + "," + bookData[ 4 ] +
+							"," + bookData[ 5 ] + "," + bookData[ 6 ] + "," + bookData[ 7 ] + "," + bookData[ 8 ] + "," + bookData[ 9 ] + "," + "nodate" + "," + "noname";
+					csvWriter.append( "\n" );
+					csvWriter.append( editedRow );
+				}
+				else {
+				//if not Book object to be edited, append to temp file
 				csvWriter.append( "\n" );
-				csvWriter.append( editedRow );
+				csvWriter.append( row );
+				}
 			}
-			else {
-			//if not Book object to be edited, append to temp file
-			csvWriter.append( "\n" );
-			csvWriter.append( row );
+	    	//remove old LibraryData.csv and rename temporary file to LibraryData.csv
+			csvWriter.close( );
+			csvReader.close( );
+	    	libData.delete( );
+	    	tmp.renameTo( libData );
+	    	Library.selected = null;
+			Library.loadLibrary( );
+			//return to MainMenu scene
+			URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
+			Parent root = FXMLLoader.load( addBookURL );
+			Scene scene = new Scene( root );
+			Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
+			stage.setScene( scene );
+			stage.show( );
+	    	} catch ( IOException e ) {
+				e.printStackTrace( );
 			}
-		}
-    	//remove old LibraryData.csv and rename temporary file to LibraryData.csv
-		csvWriter.close( );
-		csvReader.close( );
-    	libData.delete( );
-    	tmp.renameTo( libData );
-    	Library.selected = null;
-		Library.loadLibrary( );
-		//return to MainMenu scene
-		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
-		Parent root = FXMLLoader.load( addBookURL );
-		Scene scene = new Scene( root );
-		Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
-		stage.setScene( scene );
-		stage.show( );
-    	} catch ( IOException e ) {
-			e.printStackTrace( );
-		}
+    	}
     }
     
     /**
@@ -219,47 +229,53 @@ public class SelectedBookController implements Initializable {
      * @throws IOException if stream to file cannot be written to or closed.
      */
     public void deleteBook( ActionEvent event ) throws IOException {
-    	//create temporary file to write to
-    	File tmp = new File( "data/tmp.csv" );
-    	tmp.getParentFile( ).mkdirs( ); 
-    	tmp.createNewFile( );
-    	//open LibraryData.csv
-    	File libData = new File( "data/LibraryData.csv" );
-    	try (
-    	BufferedReader csvReader = new BufferedReader( new FileReader( libData ) ) ) {
-    	BufferedWriter csvWriter = new BufferedWriter( new FileWriter( tmp ) );
-    	//remove header from libData and add to tmp
-    	String row = csvReader.readLine( );
-    	csvWriter.append( row );
-		//find row that book is on and don't add to tmp
-    	while ( ( row = csvReader.readLine( ) ) != "" && row != null ) {
-			String[ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
-			if( bookData.length < 8 || Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
-				continue;
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Confirmation Dialog");
+    	alert.setContentText("Are you sure?");
+    	Optional <ButtonType> action = alert.showAndWait();
+    	if( action.get() == ButtonType.OK) {
+	    	//create temporary file to write to
+	    	File tmp = new File( "data/tmp.csv" );
+	    	tmp.getParentFile( ).mkdirs( ); 
+	    	tmp.createNewFile( );
+	    	//open LibraryData.csv
+	    	File libData = new File( "data/LibraryData.csv" );
+	    	try (
+	    	BufferedReader csvReader = new BufferedReader( new FileReader( libData ) ) ) {
+	    	BufferedWriter csvWriter = new BufferedWriter( new FileWriter( tmp ) );
+	    	//remove header from libData and add to tmp
+	    	String row = csvReader.readLine( );
+	    	csvWriter.append( row );
+			//find row that book is on and don't add to tmp
+	    	while ( ( row = csvReader.readLine( ) ) != "" && row != null ) {
+				String[ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
+				if( bookData.length < 8 || Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
+					continue;
+				}
+				//if not Book to be deleted, append to temp file
+				csvWriter.append( "\n" );
+				csvWriter.append( row );
 			}
-			//if not Book to be deleted, append to temp file
-			csvWriter.append( "\n" );
-			csvWriter.append( row );
-		}
-    	//remove old LibraryData.csv and rename temporary file to LibraryData.csv
-		csvWriter.close( );
-		csvReader.close( );
-    	libData.delete( );
-    	tmp.renameTo( libData );
-		Library.books.remove( Library.selected );
-		Library.searchedBooks.remove( Library.selected );
-		Library.selected = null;
-		Library.loadLibrary( );
-		//return to MainMenu scene
-		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
-		Parent root = FXMLLoader.load( addBookURL );
-		Scene scene = new Scene( root );
-		Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
-		stage.setScene( scene );
-		stage.show( );
-    	} catch ( IOException e ) {
-			e.printStackTrace( );
-		}
+	    	//remove old LibraryData.csv and rename temporary file to LibraryData.csv
+			csvWriter.close( );
+			csvReader.close( );
+	    	libData.delete( );
+	    	tmp.renameTo( libData );
+			Library.books.remove( Library.selected );
+			Library.searchedBooks.remove( Library.selected );
+			Library.selected = null;
+			Library.loadLibrary( );
+			//return to MainMenu scene
+			URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
+			Parent root = FXMLLoader.load( addBookURL );
+			Scene scene = new Scene( root );
+			Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
+			stage.setScene( scene );
+			stage.show( );
+	    	} catch ( IOException e ) {
+				e.printStackTrace( );
+			}
+    	}
     }
     
 	/**
