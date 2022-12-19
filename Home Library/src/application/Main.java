@@ -1,5 +1,4 @@
 package application;
-
 import java.io.File;
 import java.net.URL;
 import application.model.Library;
@@ -10,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+	
 	@Override
 	public void start( Stage primaryStage ) {
 		try {

@@ -1,5 +1,4 @@
 package application.controller;
-
 import java.io.File;
 import java.net.URL;
 import javafx.event.ActionEvent;
@@ -43,7 +42,7 @@ public class AboutController {
     @FXML
     void goHome( ActionEvent event ) {
     	try {
-    		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL() ;
+    		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( ) ;
 			Parent root = FXMLLoader.load( addBookURL );
 			Scene scene = new Scene( root );
 			Stage stage = ( Stage ) ( ( Node ) event.getSource( ) ).getScene( ).getWindow( );
