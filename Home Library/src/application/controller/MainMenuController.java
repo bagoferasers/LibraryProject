@@ -1,5 +1,4 @@
 package application.controller;
-
 import application.model.Library;
 import java.io.File;
 import java.net.URL;
@@ -48,41 +47,41 @@ public class MainMenuController implements Initializable {
     @FXML
 	public void onSearch( ActionEvent event ) {
     	//initialize by clearing previous searchedBooks
-    	Library.searchedBooks.clear();
+    	Library.searchedBooks.clear( );
     	//if library has books
     	if( Library.books != null ) {
     		//if bookButton is selected, search library for books and add to searchedBooks
-    		if( bookButton.isSelected()) {
+    		if( bookButton.isSelected( ) ) {
     			//if nothing is in the searchField, display all books
-    			if(searchField.getText().isEmpty() && Library.searchedBooks.isEmpty()) {
-    				Library.searchedBooks.addAll(Library.books);
+    			if( searchField.getText( ).isEmpty( ) && Library.searchedBooks.isEmpty( ) ) {
+    				Library.searchedBooks.addAll( Library.books );
     			}
     			else {
     				//search books for keyword
-    				for(int i = 0; i < Library.books.size(); i++ ) {
+    				for( int i = 0; i < Library.books.size( ); i++ ) {
     					//if book at position i contains keyword, add to searchedBooks
-    					if(Library.books.get(i).getName().toLowerCase().contains(searchField.getText().toLowerCase()) 
-    					   && !Library.searchedBooks.contains(Library.books.get(i))) {
-    						Library.searchedBooks.add(Library.books.get(i));
+    					if( Library.books.get( i ).getName( ).toLowerCase( ).contains(searchField.getText( ).toLowerCase( ) ) 
+    					   && !Library.searchedBooks.contains( Library.books.get( i ) ) ) {
+    						Library.searchedBooks.add( Library.books.get( i ) );
     					}
     				}
     			}
     		}
     		//if hashtagsButton is selected, search library for hashtags and add to searchedBooks
-    		if( hashtagsButton.isSelected()) {
+    		if( hashtagsButton.isSelected( ) ) {
     			//if nothing is in the searchField, display all books
-    			if(searchField.getText().isEmpty() && Library.searchedBooks.isEmpty()) {
-    				Library.searchedBooks.addAll(Library.books);
+    			if( searchField.getText( ).isEmpty( ) && Library.searchedBooks.isEmpty( ) ) {
+    				Library.searchedBooks.addAll( Library.books );
     			}
     			else {
     				//search books for keyword
-    				for(int i = 0; i < Library.books.size(); i++ ) {
+    				for( int i = 0; i < Library.books.size( ); i++ ) {
     					//if book at position i contains keyword, add to searchedBooks
-    					String s[] = Library.books.get(i).getHashtags().split("/");
+    					String s[ ] = Library.books.get( i ).getHashtags( ).split( "/" );
     					for( int j = 0; j < s.length; j++ ) {
-    						if(s[j].toLowerCase().contains(searchField.getText().toLowerCase())
-    					       && !Library.searchedBooks.contains(Library.books.get(i))) {
-    						   Library.searchedBooks.add(Library.books.get(i));
+    						if( s[ j ].toLowerCase( ).contains( searchField.getText( ).toLowerCase( ) )
+    					       && !Library.searchedBooks.contains( Library.books.get( i ) ) ) {
+    						   Library.searchedBooks.add(Library.books.get( i ) );
     						}
     					}
 
@@ -90,53 +89,52 @@ public class MainMenuController implements Initializable {
     			}
     		}
     		//if authorsButton is selected, search library for authors and add to searchedBooks
-    		if( authorsButton.isSelected()) {
+    		if( authorsButton.isSelected( ) ) {
     			//if nothing is in the searchField, display all books
-    			if(searchField.getText().isEmpty() && Library.searchedBooks.isEmpty()) {
-    				Library.searchedBooks.addAll(Library.books);
+    			if(searchField.getText( ).isEmpty( ) && Library.searchedBooks.isEmpty( ) ) {
+    				Library.searchedBooks.addAll( Library.books );
     			}
     			else {
     				//search books for keyword
-    				for(int i = 0; i < Library.books.size(); i++ ) {
+    				for( int i = 0; i < Library.books.size( ); i++ ) {
     					//if book at position i contains keyword, add to searchedBooks
-    					if(Library.books.get(i).getAuthor().getFirstName().toLowerCase().contains(searchField.getText().toLowerCase())
-    					   || Library.books.get(i).getAuthor().getLastName().toLowerCase().contains(searchField.getText().toLowerCase())
-    					   && !Library.searchedBooks.contains(Library.books.get(i))) {
-    						Library.searchedBooks.add(Library.books.get(i));
+    					if( Library.books.get( i ).getAuthor( ).getFirstName( ).toLowerCase( ).contains( searchField.getText( ).toLowerCase( ) )
+    					   || Library.books.get( i ).getAuthor( ).getLastName( ).toLowerCase( ).contains( searchField.getText( ).toLowerCase( ) )
+    					   && !Library.searchedBooks.contains( Library.books.get( i ) ) ) {
+    						Library.searchedBooks.add( Library.books.get( i ) );
     					}
     				}
     			}
     		}
     		//if genresButton is selected, search library for authors and add to searchedBooks
-    		if( genresButton.isSelected()) {
+    		if( genresButton.isSelected( ) ) {
     			//if nothing is in the searchField, display all books
-    			if(searchField.getText().isEmpty() && Library.searchedBooks.isEmpty()) {
-    				Library.searchedBooks.addAll(Library.books);
+    			if(searchField.getText( ).isEmpty( ) && Library.searchedBooks.isEmpty( ) ) {
+    				Library.searchedBooks.addAll( Library.books );
     			}
     			else {
     				//search books for keyword
-    				for(int i = 0; i < Library.books.size(); i++ ) {
+    				for( int i = 0; i < Library.books.size( ); i++ ) {
     					//if book at position i contains keyword, add to searchedBooks
-    					if(Library.books.get(i).getGenre().toLowerCase().contains(searchField.getText().toLowerCase())
-    					   && !Library.searchedBooks.contains(Library.books.get(i))) {
-    						Library.searchedBooks.add(Library.books.get(i));
+    					if( Library.books.get( i ).getGenre( ).toLowerCase( ).contains( searchField.getText( ).toLowerCase( ) )
+    					   && !Library.searchedBooks.contains( Library.books.get( i ) ) ) {
+    						Library.searchedBooks.add( Library.books.get( i ) );
     					}
     				}
     			}
     		}
     		//if nothing is selected, add entire library to searchedBooks
-    		if( !bookButton.isSelected() && !hashtagsButton.isSelected() && !authorsButton.isSelected() && !genresButton.isSelected() 
-    			&& Library.searchedBooks.isEmpty()) {
-    			Library.searchedBooks.addAll(Library.books);
-    			//searchList.setItems( Library.searchedBooks );
+    		if( !bookButton.isSelected( ) && !hashtagsButton.isSelected( ) && !authorsButton.isSelected( ) && !genresButton.isSelected( ) 
+    			&& Library.searchedBooks.isEmpty( ) ) {
+    			Library.searchedBooks.addAll( Library.books );
     		}
     		//if nothing is found
-    		if( Library.searchedBooks.isEmpty() ) {
-    			searchField.clear();
-    			searchField.setPromptText("Nothing found.");
+    		if( Library.searchedBooks.isEmpty( ) ) {
+    			searchField.clear( );
+    			searchField.setPromptText( "Nothing found." );
     			
     		}
-    		searchList.setItems(Library.searchedBooks);
+    		searchList.setItems( Library.searchedBooks );
     	}
     }
     
@@ -187,11 +185,10 @@ public class MainMenuController implements Initializable {
     }
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		if(!Library.searchedBooks.isEmpty()) {
-			searchList.setItems(Library.searchedBooks);
+	public void initialize( URL location, ResourceBundle resources ) {
+		if( !Library.searchedBooks.isEmpty( ) ) {
+			searchList.setItems( Library.searchedBooks );
 		}
-			
 	}
 }
 

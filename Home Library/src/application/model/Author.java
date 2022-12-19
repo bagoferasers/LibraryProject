@@ -9,9 +9,9 @@ public class Author {
 		this.setLastName( lastName );
 	}
 	
-	public Author() {
-		this.setFirstName("");
-		this.setLastName("");
+	public Author( ) {
+		this.setFirstName( "" );
+		this.setLastName( "" );
 	}
 
 	public String getFirstName( ) {

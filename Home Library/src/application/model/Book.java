@@ -15,7 +15,7 @@ public class Book {
 	
 	public Book( String BookImage, String name, String description,
 			String hashtags, Author author, String genre, long ISBN, 
-			String format, Boolean b, String dateLoaned, String nameLoaned) {
+			String format, Boolean b, String dateLoaned, String nameLoaned ) {
 		this.setPicture( BookImage );
 		this.setName( name );
 		this.setDescription( description );
@@ -23,47 +23,47 @@ public class Book {
 		this.setAuthor( author );
 		this.setGenre( genre );
 		this.setISBN( ISBN );
-		this.setFormat(format);
-		this.setLoaned(b);
-		this.setDateLoaned(dateLoaned);
-		this.setNameLoaned(nameLoaned);
+		this.setFormat( format );
+		this.setLoaned( b );
+		this.setDateLoaned( dateLoaned );
+		this.setNameLoaned( nameLoaned );
 	}
 	
-	public Book() {
-		this.setPicture(null);
-		this.setName("");
-		this.setDescription("");
-		this.setHashtags("");
-		this.setAuthor(null);
-		this.setGenre(null);
-		this.setISBN(0);
-		this.setFormat("");
-		this.setLoaned(false);
-		this.setDateLoaned("nodate");
-		this.setNameLoaned("noname");
+	public Book( ) {
+		this.setPicture( null );
+		this.setName( "" );
+		this.setDescription( "" );
+		this.setHashtags( "" );
+		this.setAuthor( null );
+		this.setGenre( null );
+		this.setISBN( 0 );
+		this.setFormat( "" );
+		this.setLoaned( false );
+		this.setDateLoaned( "nodate" );
+		this.setNameLoaned( "noname" );
 	}
 	
-	public String getNameLoaned() {
+	public String getNameLoaned( ) {
 		return nameLoaned;
 	}
 	
-	public void setNameLoaned(String nameLoaned) {
+	public void setNameLoaned( String nameLoaned ) {
 		this.nameLoaned = nameLoaned;
 	}
 	
-	public String getDateLoaned() {
+	public String getDateLoaned( ) {
 		return dateLoaned;
 	}
 	
-	public void setDateLoaned(String dateLoaned) {
+	public void setDateLoaned( String dateLoaned ) {
 		this.dateLoaned = dateLoaned;
 	}
 	
-	public Boolean getLoaned() {
+	public Boolean getLoaned( ) {
 		return loaned;
 	}
 	
-	public void setLoaned(Boolean b) {
+	public void setLoaned( Boolean b ) {
 		this.loaned = b;
 	}
 	
@@ -75,7 +75,7 @@ public class Book {
 		return format;
 	}
 
-	public void setISBN(long i) {
+	public void setISBN( long i ) {
 		this.ISBN = i;
 	}
 	
@@ -132,7 +132,7 @@ public class Book {
 	}
 	
 	public String hashtagToString( ) {
-		String s[] = hashtags.split("/");
+		String s[ ] = hashtags.split( "/" );
 		String h = "";
 		for( int i = 0; i < s.length; i++ ) {
 			h += "#" + s[ i ] + " ";
@@ -142,9 +142,9 @@ public class Book {
 	
 	@Override
 	public String toString( ) {
-		if(this.getLoaned() == true )
-			return this.name + " by " + this.author + " ( " + this.genre + " ) " + this.hashtagToString() + " LOANED";
+		if( this.getLoaned( ) == true )
+			return this.name + " by " + this.author + " ( " + this.genre + " ) " + this.hashtagToString( ) + " LOANED";
 		else
-			return this.name + " by " + this.author + " ( " + this.genre + " ) " + this.hashtagToString();
+			return this.name + " by " + this.author + " ( " + this.genre + " ) " + this.hashtagToString( );
 	}
 }
