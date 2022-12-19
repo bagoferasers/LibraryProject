@@ -32,6 +32,7 @@ public class Library {
 			//while csv isn't null, read a new line into a Book object
 			while ( ( row = csvReader.readLine( ) ) != null ) {
 				String[ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
+				//if book is loaned
 				if( bookData.length > 10 ) {
 					b.setName( bookData[ 0 ] );
 					Author a = new Author( );
@@ -52,6 +53,7 @@ public class Library {
 					Library.books.add( b );
 					b = new Book( );
 				}
+				//if book is not loaned
 				else if( bookData.length > 9 ) {
 					b.setName( bookData[ 0 ] );
 					Author a = new Author( );

@@ -99,7 +99,7 @@ public class NewBookController implements Initializable {
     @FXML
     void goHome( ActionEvent event ) {
     	try {
-    		//re enter prompt text
+    		//set prompt text
     		enterTitle.setPromptText( "Enter book title." );
     		enterAuthor.setPromptText( "Enter book author." );
     		enterGenre.setPromptText( "Enter book genre." );
@@ -110,7 +110,7 @@ public class NewBookController implements Initializable {
     		enterFormat.setPromptText( "Enter book format." );
     		Library.selected = null;
     		Library.loadLibrary( );
-    		//go home
+    		//go to MainMenu scene
     		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
 			Parent root = FXMLLoader.load( addBookURL );
 			Scene scene = new Scene( root );
@@ -136,7 +136,7 @@ public class NewBookController implements Initializable {
     	String[ ] fullName = null;
     	Author a = null;
     	try {
-    		//if anything is blank on goSubmit, continue to main
+    		//if anything is blank on goSubmit
     		if ( enterTitle.getText( ).length( ) == 0 ||
     			 enterAuthor.getText( ).length( ) == 0 ||
     			 enterGenre.getText( ).length( ) == 0 ||
@@ -147,7 +147,7 @@ public class NewBookController implements Initializable {
     			System.out.println( "Not everything is filled. Please fill all text areas." );
     		}
     		else {
-    			//delete previous book entry//////////////////////////////////////////////////////////
+    			/////////////////////////////////////////delete previous book entry////////////////////////////////////////////////////
     	    	//create temporary file to write to
     	    	File tmp = new File( "data/tmp.csv" );
     	    	tmp.getParentFile( ).mkdirs( ); 
@@ -161,16 +161,16 @@ public class NewBookController implements Initializable {
     	    	try (
     	    	BufferedReader csvReader = new BufferedReader( new FileReader( libData ) ) ) {
     	    	BufferedWriter csvWriter = new BufferedWriter( new FileWriter( tmp ) );
-    	    	// remove header and add header
+    	    	//remove header from libData and append to tmp
     	    	String row = csvReader.readLine( );
     	    	csvWriter.append( row );
-    			//find row that book is on and continue
+    			//find row that book is on and continue instead of adding it to tmp
     	    	while ( ( row = csvReader.readLine( ) ) != "" && row != null ) {
     				String[ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
     				if( Library.selected != null && bookData != null && ( bookData.length < 8 || Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) ) {
     					continue;
     				}
-    				//if not book, append to temp file
+    				//if not Book object, append to temp file
     				csvWriter.append( "\n" );
     				csvWriter.append( row );
     			}
@@ -185,7 +185,7 @@ public class NewBookController implements Initializable {
     	    	} catch ( IOException e ) {
     				e.printStackTrace( );
     			}
-    	    	//replace old entry with new updated values/////////////////////////////////////////////////
+    	    	//////////////////////////////replace old entry with new updated Book object/////////////////////////////////////////////////
     			FileWriter csvWriter = new FileWriter( "data/LibraryData.csv", true );
     			csvWriter.append( "\n" );
     			csvWriter.append( enterTitle.getText( ) );
@@ -228,7 +228,7 @@ public class NewBookController implements Initializable {
     			Library.books.clear( );
     			Library.loadLibrary() ;
     		}
-    		//create book object and add book with updated fields to searched books
+    		//add Book object to Library's ObservableList searchedBooks
     		if( fullName != null && fullName.length > 1 ) {
     			a = new Author( fullName[ 0 ],fullName[ 1 ] );
     			Book b = new Book( enterImagePath.getText( ), enterTitle.getText( ), enterDescription.getText( ), enterHashtags.getText( ), a,
@@ -243,7 +243,7 @@ public class NewBookController implements Initializable {
     		}
     		//clear Library selected book
     		Library.selected = null;
-    		//re enter prompt text
+    		//set prompt text
     		enterTitle.setPromptText( "Enter book title." );
     		enterAuthor.setPromptText( "Enter book author." );
     		enterGenre.setPromptText( "Enter book genre." );
@@ -252,7 +252,7 @@ public class NewBookController implements Initializable {
     		enterImagePath.setPromptText( "Place image in application.view and enter Image path." );
     		enterISBN.setPromptText( "Enter book ISBN." );
     		enterFormat.setPromptText( "Enter book format." );
-    		//else continue to main
+    		//go to MainMenu scene
     		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
 			Parent root = FXMLLoader.load( addBookURL );
 			Scene scene = new Scene( root );

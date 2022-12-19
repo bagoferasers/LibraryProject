@@ -88,7 +88,7 @@ public class SelectedBookController implements Initializable {
      */
     public void returnBook( ActionEvent event ) throws IOException {
     	Library.selected.setLoaned( false );
-		//find it in csv and change bookData[9] to TRUE
+		//find Book object in csv and change loaned to TRUE
 		//create temporary file to write to
     	File tmp = new File( "data/tmp.csv" );
     	tmp.getParentFile( ).mkdirs( ); 
@@ -98,10 +98,10 @@ public class SelectedBookController implements Initializable {
     	try (
     	BufferedReader csvReader = new BufferedReader( new FileReader( libData ) ) ) {
     	BufferedWriter csvWriter = new BufferedWriter( new FileWriter( tmp ) );
-    	// remove header and add header
+    	//remove header from libData and add to tmp
     	String row = csvReader.readLine( );
     	csvWriter.append( row );
-		//find row that book is on and mark it as loaned
+		//find row that book is on and mark it as loaned and append to tmp
     	while ( ( row = csvReader.readLine( ) ) != "" && row != null ) {
 			String[ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
 			if( Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
@@ -112,7 +112,7 @@ public class SelectedBookController implements Initializable {
 				csvWriter.append( editedRow );
 			}
 			else {
-			//if not book, append to temp file
+			//if not Book object to be edited, append to temp file
 			csvWriter.append( "\n" );
 			csvWriter.append( row );
 			}
@@ -124,7 +124,7 @@ public class SelectedBookController implements Initializable {
     	tmp.renameTo( libData );
     	Library.selected = null;
 		Library.loadLibrary( );
-		//return to home
+		//return to MainMenu scene
 		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
 		Parent root = FXMLLoader.load( addBookURL );
 		Scene scene = new Scene( root );
@@ -228,16 +228,16 @@ public class SelectedBookController implements Initializable {
     	try (
     	BufferedReader csvReader = new BufferedReader( new FileReader( libData ) ) ) {
     	BufferedWriter csvWriter = new BufferedWriter( new FileWriter( tmp ) );
-    	// remove header and add header
+    	//remove header from libData and add to tmp
     	String row = csvReader.readLine( );
     	csvWriter.append( row );
-		//find row that book is on and continue
+		//find row that book is on and don't add to tmp
     	while ( ( row = csvReader.readLine( ) ) != "" && row != null ) {
 			String[ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
 			if( bookData.length < 8 || Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
 				continue;
 			}
-			//if not book, append to temp file
+			//if not Book to be deleted, append to temp file
 			csvWriter.append( "\n" );
 			csvWriter.append( row );
 		}
@@ -250,7 +250,7 @@ public class SelectedBookController implements Initializable {
 		Library.searchedBooks.remove( Library.selected );
 		Library.selected = null;
 		Library.loadLibrary( );
-		//return to home
+		//return to MainMenu scene
 		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
 		Parent root = FXMLLoader.load( addBookURL );
 		Scene scene = new Scene( root );

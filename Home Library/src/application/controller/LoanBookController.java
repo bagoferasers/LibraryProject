@@ -49,8 +49,7 @@ public class LoanBookController {
 		Library.selected.setLoaned( true );
 		Library.selected.setDateLoaned( dateLoaned.getText( ) );
 		Library.selected.setNameLoaned( nameLoaned.getText( ) );
-		//find it in csv and change bookData[9] to TRUE
-		//create temporary file to write to
+		//find Book object in csv and change bookData[9] to TRUE
     	File tmp = new File( "data/tmp.csv" );
     	tmp.getParentFile( ).mkdirs( ); 
     	tmp.createNewFile( );
@@ -59,12 +58,13 @@ public class LoanBookController {
     	try (
     	BufferedReader csvReader = new BufferedReader( new FileReader( libData ) ) ) {
     	BufferedWriter csvWriter = new BufferedWriter( new FileWriter( tmp ) );
-    	// remove header and add header
+    	//remove header from libData and append to tmp
     	String row = csvReader.readLine( );
     	csvWriter.append( row );
-		//find row that book is on and mark it as loaned
+		//find row that book is on
     	while ( ( row = csvReader.readLine( ) ) != "" && row != null ) {
 			String[ ] bookData = row.split( ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)" );
+			//if Book object is to be loaned, mark it as loaned and add to tmp
 			if( Long.valueOf( bookData[ 6 ] ) == Library.selected.getISBN( ) ) {
 				bookData[ 9 ] = "TRUE";
 				String editedRow = bookData[ 0 ] + "," + bookData[ 1 ] + "," + bookData[ 2 ] + "," + bookData[ 3 ] + "," + bookData[ 4 ] +
@@ -74,12 +74,12 @@ public class LoanBookController {
 				csvWriter.append( s );
 			}
 			else {
-			//if not book, append to temp file
+			//if not Book object to be loaned, append to temp file
 			csvWriter.append( "\n" );
 			csvWriter.append( row );
 			}
 		}
-    	//remove old LibraryData.csv and rename temporary file to LibraryData.csv
+    	//remove old LibraryData.csv and rename tmp file to "LibraryData.csv"
 		csvWriter.close( );
 		csvReader.close( );
     	libData.delete( );
