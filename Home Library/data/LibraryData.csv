@@ -1,2 +1,2 @@
 NAME,LAST,FIRST,GENRE,HASHTAGS,DESCRIPTION,ISBN,IMAGE,Format,Loaned,dateLoaned,nameLoaned
-The Hobbit,Colby,Bailey,Fantasy,this/book/is/cool,This is the new description.,1,TheHobbit_COVER.PNG,Paperback,FALSE,nodate,noname
+The Hobbit,Colby,Bailey,Fantasy,this/book/is/cool,This is the new description.,1,TheHobbit_COVER.PNG,Paperback,TRUE,12/24/2022,Aaron Bailey
