@@ -113,8 +113,8 @@ public class MainMenuController implements Initializable {
     				//search books for keyword
     				for( int i = 0; i < Library.books.size( ); i++ ) {
     					//if book at position i contains keyword, add to searchedBooks
-    					if( Library.books.get( i ).getAuthor( ).getFirstName( ).toLowerCase( ).contains( searchField.getText( ).toLowerCase( ) )
-    					   || Library.books.get( i ).getAuthor( ).getLastName( ).toLowerCase( ).contains( searchField.getText( ).toLowerCase( ) )
+    					if( ( Library.books.get( i ).getAuthor( ).getFirstName( ).toLowerCase( ).contains( searchField.getText( ).toLowerCase( ) )
+    					   || Library.books.get( i ).getAuthor( ).getLastName( ).toLowerCase( ).contains( searchField.getText( ).toLowerCase( ) ) )
     					   && !Library.searchedBooks.contains( Library.books.get( i ) ) ) {
     						Library.searchedBooks.add( Library.books.get( i ) );
     					}
