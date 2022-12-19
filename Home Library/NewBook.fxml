@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -9,12 +14,12 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="SelectedPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #003300;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.NewBookController">
+<BorderPane fx:id="SelectedPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #003300;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.NewBookController">
     <center>
        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1000.0" style="-fx-background-color: d9d9d9;" BorderPane.alignment="CENTER">
           <children>
              <AnchorPane layoutX="50.0" layoutY="55.0" style="-fx-background-color: #ffffff;" />
-             <TextField fx:id="enterTitle" layoutX="200.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="750.0" promptText="Enter book title.">
+             <TextField fx:id="enterTitle" layoutX="175.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="750.0" promptText="Enter book title." stylesheets="@src/application/application.css">
                 <effect>
                    <InnerShadow />
                 </effect>
@@ -22,7 +27,7 @@
                    <Font size="18.0" />
                 </font>
              </TextField>
-             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #d9d9d9;" text="Title">
+             <Label fx:id="BookTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" stylesheets="@src/application/application.css" text="Title">
                 <font>
                    <Font size="18.0" />
                 </font>
@@ -30,7 +35,7 @@
                    <InnerShadow />
                 </effect>
              </Label>
-             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #d9d9d9;" text="Author">
+             <Label fx:id="BookAuthor" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" stylesheets="@src/application/application.css" text="Author">
                 <font>
                    <Font size="18.0" />
                 </font>
@@ -38,7 +43,7 @@
                    <InnerShadow />
                 </effect>
              </Label>
-             <TextField fx:id="enterAuthor" layoutX="200.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="750.0" promptText="Enter book author.">
+             <TextField fx:id="enterAuthor" layoutX="175.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="750.0" promptText="Enter book author." stylesheets="@src/application/application.css">
                 <effect>
                    <InnerShadow />
                 </effect>
@@ -46,7 +51,7 @@
                    <Font size="18.0" />
                 </font>
              </TextField>
-             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #d9d9d9;" text="Genre">
+             <Label fx:id="BookGenre" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" stylesheets="@src/application/application.css" text="Genre">
                 <font>
                    <Font size="18.0" />
                 </font>
@@ -54,7 +59,7 @@
                    <InnerShadow />
                 </effect>
              </Label>
-             <TextField fx:id="enterGenre" layoutX="200.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="750.0" promptText="Enter book genre.">
+             <TextField fx:id="enterGenre" layoutX="175.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="750.0" promptText="Enter book genre." stylesheets="@src/application/application.css">
                 <effect>
                    <InnerShadow />
                 </effect>
@@ -62,7 +67,7 @@
                    <Font size="18.0" />
                 </font>
              </TextField>
-             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #d9d9d9;" text="Hashtags">
+             <Label fx:id="BookHashtags" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" stylesheets="@src/application/application.css" text="Hashtags">
                 <font>
                    <Font size="18.0" />
                 </font>
@@ -70,7 +75,7 @@
                    <InnerShadow />
                 </effect>
              </Label>
-             <TextField fx:id="enterHashtags" layoutX="200.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="750.0" promptText="Enter book hashtags delimited by a forward slash.  For example : adventure/love/wolves">
+             <TextField fx:id="enterHashtags" layoutX="175.0" layoutY="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="750.0" promptText="Enter book hashtags delimited by a forward slash.  For example : adventure/love/wolves" stylesheets="@src/application/application.css">
                 <effect>
                    <InnerShadow />
                 </effect>
@@ -78,7 +83,7 @@
                    <Font size="18.0" />
                 </font>
              </TextField>
-             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="280.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #d9d9d9;" text="Description">
+             <Label fx:id="BookDescription" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" stylesheets="@src/application/application.css" text="Description">
                 <font>
                    <Font size="18.0" />
                 </font>
@@ -86,7 +91,7 @@
                    <InnerShadow />
                 </effect>
              </Label>
-             <TextArea fx:id="enterDescription" layoutX="200.0" layoutY="280.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="750.0" promptText="Enter book description." wrapText="true">
+             <TextArea fx:id="enterDescription" layoutX="175.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="750.0" promptText="Enter book description." stylesheets="@src/application/application.css" wrapText="true">
                 <effect>
                    <InnerShadow />
                 </effect>
@@ -94,7 +99,7 @@
                    <Font size="18.0" />
                 </font>
              </TextArea>
-             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="490.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #d9d9d9;" text="Image Path">
+             <Label fx:id="BookImagePath" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="490.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" stylesheets="@src/application/application.css" text="Image Path">
                 <font>
                    <Font size="18.0" />
                 </font>
@@ -102,7 +107,7 @@
                    <InnerShadow />
                 </effect>
              </Label>
-             <TextField fx:id="enterImagePath" layoutX="200.0" layoutY="490.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="750.0" promptText="Place image in application.view and enter Image path.">
+             <TextField fx:id="enterImagePath" layoutX="175.0" layoutY="490.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="750.0" promptText="Place image in application.view and enter Image path." stylesheets="@src/application/application.css">
                 <effect>
                    <InnerShadow />
                 </effect>
@@ -110,7 +115,7 @@
                    <Font size="18.0" />
                 </font>
              </TextField>
-             <Button layoutX="450.0" layoutY="620.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goSubmit" prefHeight="30.0" prefWidth="100.0" text="Submit">
+             <Button fx:id="goSubmit" layoutX="450.0" layoutY="590.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goSubmit" prefHeight="30.0" prefWidth="100.0" stylesheets="@src/application/application.css" text="Submit">
                 <font>
                    <Font size="12.0" />
                 </font>
@@ -118,7 +123,7 @@
                    <InnerShadow />
                 </effect>
              </Button>
-             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="550.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #d9d9d9;" text="ISBN">
+             <Label fx:id="BookISBN" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="530.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" stylesheets="@src/application/application.css" text="ISBN">
                 <font>
                    <Font size="18.0" />
                 </font>
@@ -126,7 +131,7 @@
                    <InnerShadow />
                 </effect>
              </Label>
-             <TextField fx:id="enterISBN" layoutX="200.0" layoutY="550.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="750.0" promptText="Enter book ISBN.">
+             <TextField fx:id="enterISBN" layoutX="175.0" layoutY="530.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="750.0" promptText="Enter book ISBN." stylesheets="@src/application/application.css">
                 <effect>
                    <InnerShadow />
                 </effect>
@@ -134,7 +139,7 @@
                    <Font size="18.0" />
                 </font>
              </TextField>
-            <Label fx:id="BookFormat" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="-24.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #d9d9d9;" text="Format">
+            <Label fx:id="BookFormat" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" stylesheets="@src/application/application.css" text="Format">
                <font>
                   <Font size="18.0" />
                </font>
@@ -142,7 +147,7 @@
                   <InnerShadow />
                </effect>
             </Label>
-            <TextField fx:id="enterFormat" layoutX="200.0" layoutY="-24.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="750.0" promptText="Enter book format.">
+            <TextField fx:id="enterFormat" layoutX="175.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="750.0" promptText="Enter book format." stylesheets="@src/application/application.css">
                <effect>
                   <InnerShadow />
                </effect>
@@ -154,9 +159,9 @@
        </AnchorPane>
     </center>
    <top>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: d9d9d9;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="goHome" layoutX="888.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="30.0" prefWidth="100.0" text="Home">
+            <Button fx:id="goHome" layoutX="888.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goHome" prefHeight="30.0" prefWidth="100.0" stylesheets="@src/application/application.css" text="Home">
                <font>
                   <Font size="12.0" />
                </font>
@@ -165,6 +170,9 @@
                </effect>
             </Button>
          </children>
+         <effect>
+            <InnerShadow />
+         </effect>
       </AnchorPane>
    </top>
 </BorderPane>

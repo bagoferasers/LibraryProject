@@ -5,6 +5,7 @@ import application.model.Library;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -30,6 +31,8 @@ public class Main extends Application {
 			primaryStage.setScene( scene );
 			primaryStage.setMaxHeight( 800 );
 			primaryStage.setMaxWidth( 1000 );
+			Image logo = new Image("application/view/icon.png");
+			primaryStage.getIcons().add(logo);
 			primaryStage.show( );
 		} catch( Exception e ) {
 			e.printStackTrace( );
