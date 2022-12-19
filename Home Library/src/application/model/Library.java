@@ -4,11 +4,23 @@ import java.io.FileReader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * <h2>class Library</h2>
+ * This class represents the Library. It contains an Observable list with all Book objects in csv,
+ * an Observable list containing Book objects that were searched, and the Book object that is
+ * currently selected. It's primary method is to load the library.
+ * <br><br>
+ * @author bagoferasers
+ */
 public class Library {
 	public static ObservableList < Book > books = FXCollections.observableArrayList( );
 	public static ObservableList < Book > searchedBooks = FXCollections.observableArrayList( );
 	public static Book selected;
 	
+	/**
+	 * <h2>loadLibrary( )</h2>
+	 * This method loads the csv into Book objects and places each Book object created into the Library.
+	 */
 	public static void loadLibrary( ) {
 		try {
 			Library.books.clear( );

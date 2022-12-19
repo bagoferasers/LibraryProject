@@ -23,6 +23,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * <h2>class SelectedBookController</h2>
+ * This class displays information about Book objects and implements returnBook, goHome, loan, edit, and delete methods.
+ * <br><br>
+ * @author bagoferasers
+ */
 public class SelectedBookController implements Initializable {
 
     @FXML
@@ -73,6 +79,13 @@ public class SelectedBookController implements Initializable {
     @FXML
     private Button returnBook;
     
+    /**
+     * <h2>returnBook( ActionEvent event )</h2>
+     * This method updates the csv to set loaned to False, updates the Library, and Book object.
+     * <br><br>
+     * @param event is the ActionEvent from returnBook Button.
+     * @throws IOException if stream to file cannot be written to or closed.
+     */
     public void returnBook( ActionEvent event ) throws IOException {
     	Library.selected.setLoaned( false );
 		//find it in csv and change bookData[9] to TRUE
@@ -123,6 +136,12 @@ public class SelectedBookController implements Initializable {
 		}
     }
     
+    /**
+     * <h2>loan( ActionEvent event )</h2>
+     * This method takes the event from Button and changes to LoanBook scene.
+     * <br><br>
+     * @param event is the ActionEvent from loan Button.
+     */
     public void loan( ActionEvent event ) {
 	    URL loanBookURL;
 		try {
@@ -133,11 +152,18 @@ public class SelectedBookController implements Initializable {
 			stage.setScene( scene );
 			stage.show( );
 		} catch ( IOException e ) {
-			// TODO Auto-generated catch block
 			e.printStackTrace( );
 		}
     }
 
+    /**
+     * <h2>initialize( URL location, ResourceBundle resources )</h2>
+     * Called to initialize a controller after its root element has been completely processed.
+     * This sets the fields to the currently selected Book object. It also displays if book is loaned.
+     * <br><br>
+     * @param location is a location of something.
+     * @param resources are nice to have.
+     */
     @Override
 	public void initialize( URL location, ResourceBundle resources ) {
     	if( Library.selected.getName( ) != null )
@@ -165,8 +191,13 @@ public class SelectedBookController implements Initializable {
 			}
 	}
     
+    /**
+     * <h2>editBook( ActionEvent event )</h2>
+     * This method  takes the event from Button and changes to NewBook scene.
+     * <br><br>
+     * @param event is the ActionEvent from editBook Button.
+     */
     public void editBook( ActionEvent event ) {
-    	//go to new book fxml
 	    URL selectBookURL;
 		try {
 			selectBookURL = new File( "NewBook.fxml" ).toURI( ).toURL( );
@@ -176,11 +207,17 @@ public class SelectedBookController implements Initializable {
 			stage.setScene( scene );
 			stage.show( );
 		} catch ( IOException e ) {
-			// TODO Auto-generated catch block
 			e.printStackTrace( );
 		}
     }
     
+    /**
+     * <h2>deleteBook( ActionEvent event )</h2>
+     * This method takes the event from Button and deletes a Book object from csv.
+     * <br><br>
+     * @param event is the ActionEvent from deleteBook Button.
+     * @throws IOException if stream to file cannot be written to or closed.
+     */
     public void deleteBook( ActionEvent event ) throws IOException {
     	//create temporary file to write to
     	File tmp = new File( "data/tmp.csv" );
@@ -225,6 +262,14 @@ public class SelectedBookController implements Initializable {
 		}
     }
     
+	/**
+	 * <h2>goHome( ActionEvent event )</h2>
+	 * This method takes in the event from goHome Button and goes to the MainMenu scene. Before it does,
+	 * it makes sure that the selected book is unselected.
+	 * <br><br>
+	 * @param event is the ActionEvent from goHome Button.
+	 * @throws IOException if stream to file cannot be written to or closed.
+	 */
     @FXML
     void goHome( ActionEvent event ) throws IOException {
     	Library.selected = null;

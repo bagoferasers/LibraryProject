@@ -17,6 +17,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * <h2>class LoanBookController</h2>
+ * This controller is for the LoanBook scene. It implements goLoan( ) and goHome( ) methods.
+ * <br><br>
+ * @author bagoferasers
+ */
 public class LoanBookController {
 	
 	@FXML
@@ -31,6 +37,14 @@ public class LoanBookController {
 	@FXML
 	private TextField nameLoaned;
 	
+	/**
+	 * <h2>goLoan( ActionEvent event )</h2>
+	 * This method takes in the event from goLoan button and marks the selected book as being on loan. It 
+	 * also attaches the name and date of who loaned it and when. It updates the csv and then returns to MainMenu scene.
+	 * <br><br>
+	 * @param event is the ActionEvent from goLoan Button.
+	 * @throws IOException if stream to file cannot be written to or closed.
+	 */
 	public void goLoan( ActionEvent event ) throws IOException {
 		Library.selected.setLoaned( true );
 		Library.selected.setDateLoaned( dateLoaned.getText( ) );
@@ -84,6 +98,14 @@ public class LoanBookController {
 		}
 	}
 	
+	/**
+	 * <h2>goHome( ActionEvent event )</h2>
+	 * This method takes in the event from goHome Button and goes to the MainMenu scene. Before it goes,
+	 * it makes sure that the selected book is unselected.
+	 * <br><br>
+	 * @param event is the ActionEvent from goHome Button.
+	 * @throws IOException if stream to file cannot be written to or closed.
+	 */
     @FXML
     void goHome( ActionEvent event ) throws IOException {
     	Library.selected = null;

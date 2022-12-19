@@ -25,6 +25,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * <h2>class NewBookController</h2>
+ * This controller is for the NewBook scene and if selected Book is not empty, is initialized
+ * to the values within the selected Book object. It implements goHome, which sets the prompt text back and
+ * returns to MainMenu scene. It also implements goSubmit, which adds a new Book object to Library.
+ * <br><br>
+ * @author bagoferasers
+ */
 public class NewBookController implements Initializable {
 
     @FXML
@@ -50,6 +58,9 @@ public class NewBookController implements Initializable {
     
     @FXML
     private Button goHome;
+    
+    @FXML
+    private Button goSubmit;
 
     @FXML
     private TextField enterTitle;
@@ -78,6 +89,13 @@ public class NewBookController implements Initializable {
     @FXML
     private Label BookFormat;
 
+	/**
+	 * <h2>goHome( ActionEvent event )</h2>
+	 * This method takes in the event from goHome Button and goes to the MainMenu scene. Before it does,
+	 * it makes sure that the selected book is unselected and the prompt text is returned.
+	 * <br><br>
+	 * @param event is the ActionEvent from goHome Button.
+	 */
     @FXML
     void goHome( ActionEvent event ) {
     	try {
@@ -104,6 +122,15 @@ public class NewBookController implements Initializable {
 		}
     }
     
+    /**
+     * <h2>goSubmit( ActionEvent event )</h2>
+     * This method creates and updates Book objects. It checks to see if all entries are filled,
+     * deletes the previous Book in csv if necessary, adds the new Book object to csv,
+     * and updates searched books if necessary with new Book object,
+     * enters the prompt texts into entry fields, and returns to the MainMenu scene.
+     * <br><br>
+     * @param event is the ActionEvent from goSubmit Button.
+     */
     @FXML
     void goSubmit( ActionEvent event ) {
     	String[ ] fullName = null;
@@ -237,8 +264,16 @@ public class NewBookController implements Initializable {
 		}
     }
 
+    /**
+     * <h2>initialize( URL location, ResourceBundle resources )</h2>
+     * Called to initialize a controller after its root element has been completely processed.
+     * It sets the text of the fields to the values of the currently selected book.
+     * <br><br>
+     * @param location is a location of something.
+     * @param resources are nice to have.
+     */
 	@Override
-	public void initialize( URL arg0, ResourceBundle arg1 ) {
+	public void initialize( URL location, ResourceBundle resources ) {
 		if( Library.selected != null ) {
 			enterTitle.setText( Library.selected.getName( ) );
 			enterAuthor.setText( Library.selected.author.getFirstName( ) + " " + Library.selected.author.getLastName( ) );

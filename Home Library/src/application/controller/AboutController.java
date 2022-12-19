@@ -13,6 +13,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * <h2>class AboutController</h2>
+ * This controller is for the About scene and mainly implements the goHome button.
+ * <br><br>
+ * @author bagoferasers
+ */
 public class AboutController {
 
     @FXML
@@ -39,6 +45,12 @@ public class AboutController {
     @FXML
     private Label BookAuthor;
 
+    /**
+     * <h2>goHome( ActionEvent event )</h2>
+     * This method takes the input event from goHome Button and returns you to the MainMenu scene.
+     * <br><br>
+     * @param event is the ActionEvent from Button
+     */
     @FXML
     void goHome( ActionEvent event ) {
     	try {

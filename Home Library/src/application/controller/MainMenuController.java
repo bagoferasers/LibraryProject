@@ -18,6 +18,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * <h2>class MainMenuController</h2>
+ * This controller is for the MainMenu scene and the ListView is initialized to the Book Objects currently 
+ * inside of searched books. It implements the about, add, and search buttons. Its main function is to search the library
+ * for different titles, authors, hashtags, and genres.
+ * <br><br>
+ * @author bagoferasers
+ */
 public class MainMenuController implements Initializable {
 
     @FXML
@@ -44,6 +52,13 @@ public class MainMenuController implements Initializable {
     @FXML
     private BorderPane borderPane;
     
+    /**
+     * <h2>onSearch( ActionEvent event )</h2>
+     * This method takes the event from the onSearch Button and updates the searched books accordingly
+     * and filling up the results into the ListView.
+     * <br><br>
+     * @param event is the ActionEvent from onSearch Button.
+     */
     @FXML
 	public void onSearch( ActionEvent event ) {
     	//initialize by clearing previous searchedBooks
@@ -138,6 +153,14 @@ public class MainMenuController implements Initializable {
     	}
     }
     
+    /**
+     * <h2>goSelectBook( MouseEvent event )</h2>
+     * This method takes in an event from clicking on a book with the mouse and changes
+     * scenes to the SelectedBook scene. It also sets the library's selected book to the one
+     * from the MouseEvent event.
+     * <br><br>
+     * @param event is the ActionEvent from goSelectBook Button.
+     */
     @FXML
     void goSelectBook( MouseEvent event ) {
     	try {
@@ -156,6 +179,13 @@ public class MainMenuController implements Initializable {
     	}
     }
     
+    /**
+     * <h2>onAddBook( ActionEvent event )</h2>
+     * This method takes in the event from onAddBook Button and changes scenes to 
+     * the NewBook scene.
+     * <br><br>
+     * @param event is the ActionEvent from onAddBook Button.
+     */
     @FXML
     public void onAddBook( ActionEvent event ) {
     	try {
@@ -170,6 +200,13 @@ public class MainMenuController implements Initializable {
 		}
     }
     
+    /**
+     * <h2>goAbout( ActionEvent event )</h2>
+     * This method takes in the event from goAbout Button and changes scenes to 
+     * the About scene.
+     * <br><br>
+     * @param event is the ActionEvent from goAbout Button.
+     */
     @FXML
     public void goAbout( ActionEvent event ) {
     	try {
@@ -184,6 +221,13 @@ public class MainMenuController implements Initializable {
     	}
     }
 
+    /**
+     * <h2>initialize( URL location, ResourceBundle resources )</h2>
+     * Called to initialize a controller after its root element has been completely processed.
+     * <br><br>
+     * @param location is a location of something.
+     * @param resources are nice to have.
+     */
 	@Override
 	public void initialize( URL location, ResourceBundle resources ) {
 		if( !Library.searchedBooks.isEmpty( ) ) {

@@ -8,6 +8,16 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * <h1>Bailey Library</h1>
+ * This is a side project that uses applications programming class knowledge to create a desktop app that manages my personal library. 
+ * It will search books, hashtags, genres, and authors. It will add, edit, and delete books in library. 
+ * It will loan books out and return books to library after loan.
+ * <h2>class Main</h2>
+ * This class implements the main method.
+ * <br><br>
+ * @author bagoferasers
+ */
 public class Main extends Application {
 	
 	@Override
@@ -26,6 +36,12 @@ public class Main extends Application {
 		}
 	}
 	
+	/**
+	 * <h2>main( String[ ] args )</h2>
+	 * This is the main method which loads the library from the csv and starts the MainMenu scene.
+	 * <br><br>
+	 * @param args takes in the command line arguments.
+	 */
 	public static void main( String[ ] args ) {
 		Library.loadLibrary();
 		launch( args );
