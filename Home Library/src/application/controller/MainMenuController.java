@@ -76,6 +76,7 @@ public class MainMenuController implements Initializable {
     			Library.searchedBooks.add( Library.books.get( i ) );
     		}
     	}
+    	searchList.setItems(Library.searchedBooks);
     }
     
     /**
@@ -89,6 +90,7 @@ public class MainMenuController implements Initializable {
     	if( sortByISBN.isSelected( ) ) {
     		sortByISBN.setSelected( false );
     	}
+    	Library.sortLibrary(Library.searchedBooks, sortByISBN, sortByName ); 
     }
     
     /**
@@ -102,6 +104,7 @@ public class MainMenuController implements Initializable {
     	if( sortByName.isSelected( ) ) {
     		sortByName.setSelected( false );
     	}
+    	Library.sortLibrary(Library.searchedBooks, sortByISBN, sortByName ); 
     }
     
     /**

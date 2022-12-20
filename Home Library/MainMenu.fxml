@@ -17,9 +17,9 @@
    <center>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane layoutX="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="900.0">
+            <ScrollPane layoutX="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="902.0">
                <content>
-                  <ListView fx:id="searchList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goSelectBook" prefHeight="3000.0" prefWidth="880.0" style="-fx-background-color: #d9d9d9; -fx-fixed-cell-size: 50px;" stylesheets="@src/application/application.css">
+                  <ListView fx:id="searchList" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goSelectBook" prefHeight="630.0" prefWidth="900.0" style="-fx-background-color: #d9d9d9; -fx-fixed-cell-size: 50px;" stylesheets="@src/application/application.css">
                      <effect>
                         <InnerShadow />
                      </effect>
@@ -33,9 +33,9 @@
       </AnchorPane>
    </center>
    <top>
-      <AnchorPane prefHeight="140.0" prefWidth="1000.0" style="-fx-background-color: #d9d9d9;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="125.0" prefWidth="1000.0" style="-fx-background-color: #d9d9d9;" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutY="70.0" prefHeight="30.0" prefWidth="1000.0">
+            <AnchorPane layoutY="65.0" prefHeight="30.0" prefWidth="1000.0">
                <children>
                   <TextField fx:id="searchField" layoutX="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onSearch" prefHeight="50.0" prefWidth="528.0" stylesheets="@src/application/application.css">
                      <effect>
