@@ -52,6 +52,61 @@ public class MainMenuController implements Initializable {
     @FXML
     private BorderPane borderPane;
     
+    @FXML
+    public RadioButton sortByName;
+    
+    @FXML
+	public RadioButton sortByISBN;
+    
+    @FXML
+    public Button loanedBooks;
+    
+    /**
+     * <h2>goLoanedBook( ActionEvent event )</h2>
+     * This method takes the event from the loanedBooks Button and sets searchlist items to all
+     * books that are currently out on loan.
+     * <br></br>
+     * @param event This is the event from the loanedBook Button.
+     */
+    public void goLoanedBooks( ActionEvent event ) {
+    	//iterate through books in library and add them to listview
+    	Library.searchedBooks.clear( );
+    	for( int i = 0; i < Library.books.size( ); i++ ) {
+    		if( Library.books.get( i ).loaned == true ) {
+    			Library.searchedBooks.add( Library.books.get( i ) );
+    		}
+    	}
+    	searchList.setItems(Library.searchedBooks);
+    }
+    
+    /**
+     * <h2>sortByName( ActionEvent event )</h2>
+     * This method takes the event from the sortByName Button and applies that sorting to searchlist items.
+     * <br></br>
+     * @param event This is the event from the sortByName Button.
+     */
+    public void sortByName( ActionEvent event ) {
+    	//if other button is selected, unselect
+    	if( sortByISBN.isSelected( ) ) {
+    		sortByISBN.setSelected( false );
+    	}
+    	Library.sortLibrary(Library.searchedBooks, sortByISBN, sortByName ); 
+    }
+    
+    /**
+     * <h2>sortByISBN( ActionEvent event )</h2>
+     * This method takes the event from the sortByISBN Button and applies that sorting to searchlist items.
+     * <br></br>
+     * @param event This is the event from the sortByISBN Button.
+     */
+    public void sortByISBN( ActionEvent event ) {
+    	//if other button is selected, unselect.
+    	if( sortByName.isSelected( ) ) {
+    		sortByName.setSelected( false );
+    	}
+    	Library.sortLibrary(Library.searchedBooks, sortByISBN, sortByName ); 
+    }
+    
     /**
      * <h2>onSearch( ActionEvent event )</h2>
      * This method takes the event from the onSearch Button and updates the searched books accordingly
@@ -150,7 +205,7 @@ public class MainMenuController implements Initializable {
     			
     		}
     		//searchList.setItems( Library.searchedBooks );
-    		Library.sortLibrary(Library.searchedBooks); 
+    		Library.sortLibrary(Library.searchedBooks, sortByISBN, sortByName ); 
     		searchList.setItems( Library.searchedBooks );
     	}
     }

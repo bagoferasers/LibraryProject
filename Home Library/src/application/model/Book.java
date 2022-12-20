@@ -314,7 +314,7 @@ public class Book {
 	@Override
 	public String toString( ) {
 		if( this.getLoaned( ) == true )
-			return this.name.toUpperCase() + " by " + this.author + " ( " + this.genre + " )\n\t" + this.hashtagToString( ) + " LOANED";
+			return this.name.toUpperCase() + " by " + this.author + " ( " + this.genre + " ) LOANED\n\t" + this.hashtagToString( );
 		else
 			return this.name.toUpperCase() + " by " + this.author + " ( " + this.genre + " )\n\t" + this.hashtagToString( );
 	}

@@ -3,9 +3,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Collections;
 import java.util.Comparator;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.RadioButton;
 
 /**
  * <h2>class Library</h2>
@@ -24,11 +24,17 @@ public class Library {
 	 * <h2>sortLibrary( ObservableList < Book > searchedBooks )</h2>
 	 * This method sorts the searchedBooks by name of book.
 	 * @param searchedBooks the ObservableList to be sorted.
+	 * @param sortByISBN 
 	 */
-	public static void sortLibrary( ObservableList < Book > searchedBooks ) {
-		Comparator<Book> c = Comparator.comparing(Book::getName);
-		//Comparator<Book> c = Comparator.comparing(Book::getISBN);
-		Collections.sort(searchedBooks, c);
+	public static void sortLibrary( ObservableList < Book > searchedBooks, RadioButton sortByISBN, RadioButton sortByName ) {
+		if( sortByISBN.isSelected( ) ) {
+			Comparator< Book> c = Comparator.comparing( Book::getISBN );
+			Collections.sort( searchedBooks, c );
+		}
+		else if(sortByName.isSelected( ) ) {
+			Comparator< Book > c = Comparator.comparing( Book::getName );
+			Collections.sort( searchedBooks, c );
+		}
 	}
 	
 	/**

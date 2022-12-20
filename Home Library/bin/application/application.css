@@ -1,4 +1,5 @@
-#goHome, #goLoan, #goAbout, #searchButton, #addBook, #goSubmit, #returnBook, #loanBook, #editBook, #deleteBook {
+#goHome, #goLoan, #goAbout, #searchButton, #addBook, #goSubmit, #returnBook, #loanBook, #editBook, #deleteBook,
+#loanedBooks {
 	-fx-font-family: "Brittanic Bold";
 	-fx-font-size: 12px;
 	-fx-border-color: #000000;
@@ -8,7 +9,7 @@
 }
 
 #goHome:hover, #goLoan:hover, #goAbout:hover, #searchButton:hover, #addBook:hover, #goSubmit:hover, 
-#returnBook:hover, #loanBook:hover, #editBook:hover, #deleteBook:hover {
+#returnBook:hover, #loanBook:hover, #editBook:hover, #deleteBook:hover, #loanedBooks:hover {
 	-fx-font-family: "Brittanic Bold";
 	-fx-font-size: 12px;
 	-fx-border-color: #000000;
