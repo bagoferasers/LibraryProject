@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -61,6 +62,10 @@ public class MainMenuController implements Initializable {
     @FXML
     public Button loanedBooks;
     
+    @FXML
+    private Label numberSearchedBooks;
+    
+    
     /**
      * <h2>goLoanedBook( ActionEvent event )</h2>
      * This method takes the event from the loanedBooks Button and sets searchlist items to all
@@ -76,7 +81,8 @@ public class MainMenuController implements Initializable {
     			Library.searchedBooks.add( Library.books.get( i ) );
     		}
     	}
-    	searchList.setItems(Library.searchedBooks);
+    	searchList.setItems( Library.searchedBooks );
+    	numberSearchedBooks.setText( Library.searchedBooks.size( ) + " books found" );
     }
     
     /**
@@ -204,8 +210,11 @@ public class MainMenuController implements Initializable {
     			searchField.setPromptText( "Nothing found." );
     			
     		}
-    		//searchList.setItems( Library.searchedBooks );
-    		Library.sortLibrary(Library.searchedBooks, sortByISBN, sortByName ); 
+    		Library.sortLibrary( Library.searchedBooks, sortByISBN, sortByName ); 
+    		if( Library.searchedBooks.size( ) == 1 )
+    			numberSearchedBooks.setText( Library.searchedBooks.size( ) + " book found" );
+    		else
+    			numberSearchedBooks.setText( Library.searchedBooks.size( ) + " books found" );
     		searchList.setItems( Library.searchedBooks );
     	}
     }
@@ -289,6 +298,7 @@ public class MainMenuController implements Initializable {
 	public void initialize( URL location, ResourceBundle resources ) {
 		if( !Library.searchedBooks.isEmpty( ) ) {
 			searchList.setItems( Library.searchedBooks );
+			numberSearchedBooks.setText(Library.searchedBooks.size() + " books found");
 		}
 	}
 }

@@ -19,7 +19,7 @@
          <children>
             <ScrollPane layoutX="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="902.0">
                <content>
-                  <ListView fx:id="searchList" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goSelectBook" prefHeight="630.0" prefWidth="900.0" style="-fx-background-color: #d9d9d9; -fx-fixed-cell-size: 50px;" stylesheets="@src/application/application.css">
+                  <ListView fx:id="searchList" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goSelectBook" prefHeight="620.0" prefWidth="900.0" style="-fx-background-color: #d9d9d9; -fx-fixed-cell-size: 50px;" stylesheets="@src/application/application.css">
                      <effect>
                         <InnerShadow />
                      </effect>
@@ -29,6 +29,7 @@
                   <InnerShadow />
                </effect>
             </ScrollPane>
+            <Label fx:id="numberSearchedBooks" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="615.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="900.0" textAlignment="CENTER" textFill="#d9d9d9" />
          </children>
       </AnchorPane>
    </center>
