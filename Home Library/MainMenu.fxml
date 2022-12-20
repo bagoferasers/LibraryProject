@@ -106,6 +106,14 @@
                   <Font size="12.0" />
                </font>
             </Button>
+            <Button fx:id="loanedBooks" layoutX="120.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goLoanedBooks" prefHeight="30.0" prefWidth="100.0" stylesheets="@src/application/application.css" text="Loaned Books">
+               <font>
+                  <Font size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Button>
          </children>
          <effect>
             <InnerShadow />

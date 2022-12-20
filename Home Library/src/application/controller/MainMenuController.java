@@ -58,9 +58,30 @@ public class MainMenuController implements Initializable {
     @FXML
 	public RadioButton sortByISBN;
     
+    @FXML
+    public Button loanedBooks;
+    
     /**
-     * sortByName( ActionEvent event )
+     * <h2>goLoanedBook( ActionEvent event )</h2>
+     * This method takes the event from the loanedBooks Button and sets searchlist items to all
+     * books that are currently out on loan.
+     * <br></br>
+     * @param event This is the event from the loanedBook Button.
+     */
+    public void goLoanedBooks( ActionEvent event ) {
+    	//iterate through books in library and add them to listview
+    	Library.searchedBooks.clear( );
+    	for( int i = 0; i < Library.books.size( ); i++ ) {
+    		if( Library.books.get( i ).loaned == true ) {
+    			Library.searchedBooks.add( Library.books.get( i ) );
+    		}
+    	}
+    }
+    
+    /**
+     * <h2>sortByName( ActionEvent event )</h2>
      * This method takes the event from the sortByName Button and applies that sorting to searchlist items.
+     * <br></br>
      * @param event This is the event from the sortByName Button.
      */
     public void sortByName( ActionEvent event ) {
@@ -71,8 +92,9 @@ public class MainMenuController implements Initializable {
     }
     
     /**
-     * sortByISBN( ActionEvent event )
+     * <h2>sortByISBN( ActionEvent event )</h2>
      * This method takes the event from the sortByISBN Button and applies that sorting to searchlist items.
+     * <br></br>
      * @param event This is the event from the sortByISBN Button.
      */
     public void sortByISBN( ActionEvent event ) {
