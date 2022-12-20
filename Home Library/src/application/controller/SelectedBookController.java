@@ -97,6 +97,7 @@ public class SelectedBookController implements Initializable {
     	Optional <ButtonType> action = alert.showAndWait();
     	if( action.get() == ButtonType.OK) {
 	    	Library.selected.setLoaned( false );
+	    	Library.searchedBooks.remove(Library.selected);
 			//find Book object in csv and change loaned to TRUE
 			//create temporary file to write to
 	    	File tmp = new File( "data/tmp.csv" );
