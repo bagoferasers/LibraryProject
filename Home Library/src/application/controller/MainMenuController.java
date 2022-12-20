@@ -149,6 +149,8 @@ public class MainMenuController implements Initializable {
     			searchField.setPromptText( "Nothing found." );
     			
     		}
+    		//searchList.setItems( Library.searchedBooks );
+    		Library.sortLibrary(Library.searchedBooks); 
     		searchList.setItems( Library.searchedBooks );
     	}
     }

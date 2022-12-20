@@ -1,6 +1,9 @@
 package application.model;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Collections;
+import java.util.Comparator;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -16,6 +19,15 @@ public class Library {
 	public static ObservableList < Book > books = FXCollections.observableArrayList( );
 	public static ObservableList < Book > searchedBooks = FXCollections.observableArrayList( );
 	public static Book selected;
+	
+	
+	
+	public static void sortLibrary( ObservableList < Book > searchedBooks ) {
+		Comparator<Book> c = Comparator.comparing(Book::getName);
+		//Comparator<Book> c = Comparator.comparing(Book::getISBN);
+		Collections.sort(searchedBooks, c);
+	}
+	
 	
 	/**
 	 * <h2>loadLibrary( )</h2>
