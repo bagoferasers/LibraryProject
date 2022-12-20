@@ -19,7 +19,7 @@
 	-fx-font-weight: bold;
 }
 
-#nameLoaned, #dateLoaned, #searchField {
+#nameLoaned, #dateLoaned {
 	-fx-font-size: 12px;
 	-fx-font-family: "Brittanic Bold";
 	-fx-border-color: #000000;
