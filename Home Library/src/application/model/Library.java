@@ -21,10 +21,12 @@ public class Library {
 	public static Book selected;
 	
 	/**
-	 * <h2>sortLibrary( ObservableList < Book > searchedBooks )</h2>
+	 * <h2>sortLibrary( ObservableList ( Book ) searchedBooks )</h2>
 	 * This method sorts the searchedBooks by name of book.
+	 * <br><br>
 	 * @param searchedBooks the ObservableList to be sorted.
-	 * @param sortByISBN 
+	 * @param sortByISBN RadioButton to be checked.
+	 * @param sortByName RadioButton to be checked.
 	 */
 	public static void sortLibrary( ObservableList < Book > searchedBooks, RadioButton sortByISBN, RadioButton sortByName ) {
 		if( sortByISBN.isSelected( ) ) {
