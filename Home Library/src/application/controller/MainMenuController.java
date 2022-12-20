@@ -52,6 +52,36 @@ public class MainMenuController implements Initializable {
     @FXML
     private BorderPane borderPane;
     
+    @FXML
+    public RadioButton sortByName;
+    
+    @FXML
+	public RadioButton sortByISBN;
+    
+    /**
+     * sortByName( ActionEvent event )
+     * This method takes the event from the sortByName Button and applies that sorting to searchlist items.
+     * @param event This is the event from the sortByName Button.
+     */
+    public void sortByName( ActionEvent event ) {
+    	//if other button is selected, unselect
+    	if( sortByISBN.isSelected( ) ) {
+    		sortByISBN.setSelected( false );
+    	}
+    }
+    
+    /**
+     * sortByISBN( ActionEvent event )
+     * This method takes the event from the sortByISBN Button and applies that sorting to searchlist items.
+     * @param event This is the event from the sortByISBN Button.
+     */
+    public void sortByISBN( ActionEvent event ) {
+    	//if other button is selected, unselect.
+    	if( sortByName.isSelected( ) ) {
+    		sortByName.setSelected( false );
+    	}
+    }
+    
     /**
      * <h2>onSearch( ActionEvent event )</h2>
      * This method takes the event from the onSearch Button and updates the searched books accordingly
@@ -150,7 +180,7 @@ public class MainMenuController implements Initializable {
     			
     		}
     		//searchList.setItems( Library.searchedBooks );
-    		Library.sortLibrary(Library.searchedBooks); 
+    		Library.sortLibrary(Library.searchedBooks, sortByISBN, sortByName ); 
     		searchList.setItems( Library.searchedBooks );
     	}
     }

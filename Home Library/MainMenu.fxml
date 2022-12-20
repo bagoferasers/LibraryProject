@@ -35,14 +35,14 @@
    <top>
       <AnchorPane prefHeight="140.0" prefWidth="1000.0" style="-fx-background-color: #d9d9d9;" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutY="100.0" prefHeight="30.0" prefWidth="1000.0">
+            <AnchorPane layoutY="70.0" prefHeight="30.0" prefWidth="1000.0">
                <children>
-                  <TextField fx:id="searchField" layoutX="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onSearch" prefHeight="30.0" prefWidth="519.0" stylesheets="@src/application/application.css">
+                  <TextField fx:id="searchField" layoutX="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onSearch" prefHeight="50.0" prefWidth="528.0" stylesheets="@src/application/application.css">
                      <effect>
                         <InnerShadow />
                      </effect>
                   </TextField>
-                  <Button fx:id="searchButton" layoutX="579.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onSearch" prefHeight="30.0" prefWidth="100.0" stylesheets="@src/application/application.css" text="Search">
+                  <Button fx:id="searchButton" layoutX="579.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onSearch" prefHeight="50.0" prefWidth="100.0" stylesheets="@src/application/application.css" text="Search">
                      <effect>
                         <InnerShadow />
                      </effect>
@@ -50,28 +50,38 @@
                         <Font size="12.0" />
                      </font>
                   </Button>
-                  <RadioButton fx:id="bookButton" layoutX="689.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="59.0" selected="true" style="-fx-background-color: #d9d9d9;" text="Books">
+                  <RadioButton fx:id="bookButton" layoutX="687.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" selected="true" style="-fx-background-color: #d9d9d9;" text="Books">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="hashtagsButton" layoutX="749.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: #d9d9d9;" text="Hashtags">
+                  <RadioButton fx:id="hashtagsButton" layoutX="747.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #d9d9d9;" text="Hashtags">
                      <font>
                         <Font size="12.0" />
                      </font></RadioButton>
-                  <RadioButton fx:id="authorsButton" layoutX="824.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #d9d9d9;" text="Authors">
+                  <RadioButton fx:id="authorsButton" layoutX="822.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #d9d9d9;" text="Authors">
                      <font>
                         <Font size="12.0" />
                      </font></RadioButton>
-                  <RadioButton fx:id="genresButton" layoutX="892.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="63.0" style="-fx-background-color: #d9d9d9;" text="Genres">
+                  <RadioButton fx:id="genresButton" layoutX="887.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #d9d9d9;" text="Genres">
                      <font>
                         <Font size="12.0" />
                      </font></RadioButton>
+                  <RadioButton fx:id="sortByName" layoutX="687.0" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sortByName" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: #d9d9d9;" text="sort by name">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="sortByISBN" layoutX="785.0" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sortByISBN" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: #d9d9d9;" text="sort by ISBN">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </RadioButton>
                </children>
             </AnchorPane>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Bailey Library" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1000.0" text="Bailey Library" textAlignment="CENTER">
                <font>
-                  <Font size="65.0" />
+                  <Font size="50.0" />
                </font>
                <padding>
                   <Insets left="310.0" right="310.0" />
