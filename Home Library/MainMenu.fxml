@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -19,9 +21,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #003300;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainMenuController">
+<BorderPane fx:id="mainBorderPane" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #003300;" stylesheets="@src/application/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainMenuController">
    <center>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1000.0" stylesheets="@src/application/application.css" BorderPane.alignment="CENTER">
          <children>
             <ScrollPane layoutX="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="902.0">
                <content>
@@ -40,7 +42,7 @@
       </AnchorPane>
    </center>
    <top>
-      <AnchorPane prefHeight="125.0" prefWidth="1000.0" style="-fx-background-color: #d9d9d9;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="upperAnchorPane" prefHeight="125.0" prefWidth="1000.0" style="-fx-background-color: #d9d9d9;" stylesheets="@src/application/application.css" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane layoutY="65.0" prefHeight="30.0" prefWidth="1000.0">
                <children>
@@ -57,6 +59,7 @@
                         <Font size="12.0" />
                      </font>
                   </Button>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="50.0" layoutX="680.0" stroke="BLACK" strokeType="INSIDE" width="270.0" />
                   <RadioButton fx:id="bookButton" layoutX="687.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" selected="true" style="-fx-background-color: #d9d9d9;" text="Books">
                      <font>
                         <Font size="12.0" />
@@ -65,15 +68,18 @@
                   <RadioButton fx:id="hashtagsButton" layoutX="747.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #d9d9d9;" text="Hashtags">
                      <font>
                         <Font size="12.0" />
-                     </font></RadioButton>
+                     </font>
+                  </RadioButton>
                   <RadioButton fx:id="authorsButton" layoutX="822.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #d9d9d9;" text="Authors">
                      <font>
                         <Font size="12.0" />
-                     </font></RadioButton>
-                  <RadioButton fx:id="genresButton" layoutX="887.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #d9d9d9;" text="Genres">
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="genresButton" layoutX="887.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: #d9d9d9;" text="Genres">
                      <font>
                         <Font size="12.0" />
-                     </font></RadioButton>
+                     </font>
+                  </RadioButton>
                   <RadioButton fx:id="sortByName" layoutX="687.0" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sortByName" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: #d9d9d9;" text="sort by name">
                      <font>
                         <Font size="12.0" />
