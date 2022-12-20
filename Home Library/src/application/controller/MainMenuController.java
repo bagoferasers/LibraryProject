@@ -65,7 +65,7 @@ public class MainMenuController implements Initializable {
      * <h2>goLoanedBook( ActionEvent event )</h2>
      * This method takes the event from the loanedBooks Button and sets searchlist items to all
      * books that are currently out on loan.
-     * <br></br>
+     * <br><br>
      * @param event This is the event from the loanedBook Button.
      */
     public void goLoanedBooks( ActionEvent event ) {
@@ -82,7 +82,7 @@ public class MainMenuController implements Initializable {
     /**
      * <h2>sortByName( ActionEvent event )</h2>
      * This method takes the event from the sortByName Button and applies that sorting to searchlist items.
-     * <br></br>
+     * <br><br>
      * @param event This is the event from the sortByName Button.
      */
     public void sortByName( ActionEvent event ) {
@@ -96,7 +96,7 @@ public class MainMenuController implements Initializable {
     /**
      * <h2>sortByISBN( ActionEvent event )</h2>
      * This method takes the event from the sortByISBN Button and applies that sorting to searchlist items.
-     * <br></br>
+     * <br><br>
      * @param event This is the event from the sortByISBN Button.
      */
     public void sortByISBN( ActionEvent event ) {
