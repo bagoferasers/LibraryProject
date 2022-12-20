@@ -20,14 +20,16 @@ public class Library {
 	public static ObservableList < Book > searchedBooks = FXCollections.observableArrayList( );
 	public static Book selected;
 	
-	
-	
+	/**
+	 * <h2>sortLibrary( ObservableList < Book > searchedBooks )</h2>
+	 * This method sorts the searchedBooks by name of book.
+	 * @param searchedBooks the ObservableList to be sorted.
+	 */
 	public static void sortLibrary( ObservableList < Book > searchedBooks ) {
 		Comparator<Book> c = Comparator.comparing(Book::getName);
 		//Comparator<Book> c = Comparator.comparing(Book::getISBN);
 		Collections.sort(searchedBooks, c);
 	}
-	
 	
 	/**
 	 * <h2>loadLibrary( )</h2>
