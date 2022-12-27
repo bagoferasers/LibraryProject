@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import application.model.Library;
@@ -189,8 +190,11 @@ public class SelectedBookController implements Initializable {
     		BookDescription.setText( Library.selected.getDescription( ) );
     	}
     	if( !Library.selected.getPicture( ).isEmpty( ) ) {
-    		Image i = new Image( Library.selected.getPicture( ) );
-			BookImage.setImage( i );
+    		java.nio.file.Path path = Paths.get(new File("").getAbsolutePath());
+    		String s = "file:" + path.getParent() + "\\BOOKIMAGES\\" + Library.selected.getPicture();
+    		System.out.println(s);
+    		Image i = new Image(s);
+    		BookImage.setImage(i);
     	}
 		if( Library.selected.getFormat( ) != null )
 			BookFormat.setText(Library.selected.getFormat( ) );

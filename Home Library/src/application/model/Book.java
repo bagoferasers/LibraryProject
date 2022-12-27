@@ -178,8 +178,7 @@ public class Book {
 	 * @return s this is the Image path.
 	 */
 	public String getPicture( ) {
-		String s = "application/view/" + BookImage;
-		return s;
+		return BookImage;
 	}
 	
 	/**
