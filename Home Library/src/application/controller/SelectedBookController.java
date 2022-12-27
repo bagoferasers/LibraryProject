@@ -1,13 +1,20 @@
 package application.controller;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import javax.imageio.ImageIO;
+
 import application.model.Library;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +31,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -189,8 +197,11 @@ public class SelectedBookController implements Initializable {
     		BookDescription.setText( Library.selected.getDescription( ) );
     	}
     	if( !Library.selected.getPicture( ).isEmpty( ) ) {
-    		Image i = new Image( Library.selected.getPicture( ) );
-			BookImage.setImage( i );
+    		java.nio.file.Path path = Paths.get(new File("").getAbsolutePath());
+    		String s = "file:" + path.getParent() + "\\BOOKIMAGES\\" + Library.selected.getPicture();
+    		System.out.println(s);
+    		Image i = new Image(s);
+    		BookImage.setImage(i);
     	}
 		if( Library.selected.getFormat( ) != null )
 			BookFormat.setText(Library.selected.getFormat( ) );

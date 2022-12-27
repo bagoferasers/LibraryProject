@@ -1,5 +1,11 @@
 package application.model;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import javafx.scene.image.Image;
+
 /**
  * <h2>class Book</h2>
  * This class represents Book objects. It contains BookImage, name, description, hashtags, author, genre,
@@ -178,8 +184,7 @@ public class Book {
 	 * @return s this is the Image path.
 	 */
 	public String getPicture( ) {
-		String s = "application/view/" + BookImage;
-		return s;
+		return BookImage;
 	}
 	
 	/**
