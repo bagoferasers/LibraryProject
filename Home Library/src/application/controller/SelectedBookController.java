@@ -191,7 +191,12 @@ public class SelectedBookController implements Initializable {
     	}
     	if( !Library.selected.getPicture( ).isEmpty( ) ) {
     		java.nio.file.Path path = Paths.get(new File("").getAbsolutePath());
-    		String s = "file:" + path.getParent() + "\\BOOKIMAGES\\" + Library.selected.getPicture();
+    		String s = "file:" + path.getParent() + "/BOOKIMAGES/" + Library.selected.getPicture();
+    		/*
+    		 * changed from windows:
+    		 * String s = "file:" + path.getParent() + "\\BOOKIMAGES\\" + Library.selected.getPicture();
+    		 * will this work on windows???
+    		 */
     		System.out.println(s);
     		Image i = new Image(s);
     		BookImage.setImage(i);
