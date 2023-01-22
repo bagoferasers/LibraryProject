@@ -197,7 +197,7 @@ public class SelectedBookController implements Initializable {
     		 * String s = "file:" + path.getParent() + "\\BOOKIMAGES\\" + Library.selected.getPicture();
     		 * will this work on windows???
     		 */
-    		System.out.println(s);
+    		//System.out.println(s);
     		Image i = new Image(s);
     		BookImage.setImage(i);
     	}
@@ -298,7 +298,6 @@ public class SelectedBookController implements Initializable {
 	 */
     @FXML
     void goHome( ActionEvent event ) throws IOException {
-    	Library.selected = null;
     	loanedDisplay.setText( "" );
 		URL addBookURL = new File( "MainMenu.fxml" ).toURI( ).toURL( );
 		Parent root = FXMLLoader.load( addBookURL );
