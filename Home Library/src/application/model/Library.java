@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.FocusModel;
 import javafx.scene.control.RadioButton;
 
 /**
