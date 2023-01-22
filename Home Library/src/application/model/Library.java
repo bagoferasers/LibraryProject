@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.FocusModel;
 import javafx.scene.control.RadioButton;
 
 /**
@@ -19,6 +20,7 @@ public class Library {
 	public static ObservableList < Book > books = FXCollections.observableArrayList( );
 	public static ObservableList < Book > searchedBooks = FXCollections.observableArrayList( );
 	public static Book selected;
+	public static int selectedPosition;
 	
 	/**
 	 * <h2>sortLibrary( ObservableList ( Book ) searchedBooks )</h2>
@@ -30,7 +32,7 @@ public class Library {
 	 */
 	public static void sortLibrary( ObservableList < Book > searchedBooks, RadioButton sortByISBN, RadioButton sortByName ) {
 		if( sortByISBN.isSelected( ) ) {
-			Comparator< Book> c = Comparator.comparing( Book::getISBN );
+			Comparator< Book > c = Comparator.comparing( Book::getISBN );
 			Collections.sort( searchedBooks, c );
 		}
 		else if(sortByName.isSelected( ) ) {
