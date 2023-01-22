@@ -233,6 +233,7 @@ public class MainMenuController implements Initializable {
     		Book b = searchList.getSelectionModel( ).getSelectedItem( );
     		if( b != null ) {
 	    		Library.selected = b;
+	    		Library.selectedPosition = searchList.getSelectionModel( ).getSelectedIndex( );
 	    		URL selectBookURL = new File( "SelectedBook.fxml" ).toURI( ).toURL( );
 	    		borderPane = FXMLLoader.load( selectBookURL );
 	    		Scene scene = new Scene( borderPane );
@@ -299,6 +300,8 @@ public class MainMenuController implements Initializable {
 		if( !Library.searchedBooks.isEmpty( ) ) {
 			searchList.setItems( Library.searchedBooks );
 			numberSearchedBooks.setText(Library.searchedBooks.size() + " books found");
+			searchList.scrollTo(Library.selectedPosition);
+			Library.selected = null;
 		}
 	}
 }
